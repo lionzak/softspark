@@ -12,7 +12,7 @@ const Navbar: React.FC = () => {
         <Link href="/">
           <Image
             src="/logo_no_bg.png"
-            alt="DevSoft Logo"
+            alt="SoftSpark Logo"
             width={130}
             height={40}
             className="object-contain"

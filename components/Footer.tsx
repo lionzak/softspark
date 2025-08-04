@@ -14,7 +14,7 @@ const Footer: React.FC = () => {
           <Link href="/services">Services </Link>
         </div>
         <div className={styles.copyright}>
-          &copy; {currentYear} DevSoft. All rights reserved.
+          &copy; {currentYear} SoftSpark. All rights reserved.
         </div>
       </div>
     </footer>

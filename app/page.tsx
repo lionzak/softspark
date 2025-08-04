@@ -13,7 +13,7 @@ export default function Home() {
       <section className="text-center py-16 bg-gradient-to-r from-primary to-secondary text-white rounded-lg">
         <div className='flex justify-center text-center items-center text-5xl md:text-6xl font-bold gap-x-5'>
           <h1 >Transform Your Business with</h1>
-          <h1 className='border-b-2 border-accent'>DevSoft</h1>
+          <h1 className='border-b-2 border-accent'>SoftSpark</h1>
         </div>
         <p className="text-lg md:text-xl mt-4 max-w-2xl mx-auto text-white">
           We deliver modern, responsive, and scalable web solutions tailored to your needs. Let’s build your digital future today.
@@ -40,7 +40,7 @@ export default function Home() {
 
       {/* Why Choose Us */}
       <section className="mt-16">
-        <h2 className="text-3xl font-bold text-center text-primary">Why Choose DevSoft?</h2>
+        <h2 className="text-3xl font-bold text-center text-primary">Why Choose SoftSpark?</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
           <div className="p-6 border border-border rounded-lg shadow hover:shadow-xl transition bg-backgroundLight">
             <h3 className="text-xl font-semibold text-primary">Quality Design</h3>
@@ -63,20 +63,20 @@ export default function Home() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8 max-w-4xl mx-auto">
           <div className="p-6 bg-white rounded-lg shadow">
             <p className="text-textMuted italic">
-              "DevSoft delivered a stunning website for our business in record time. Their team was professional and responsive!"
+              "SoftSpark delivered a stunning website for our business in record time. Their team was professional and responsive!"
             </p>
             <p className="mt-4 font-semibold text-primary">— Ahmed Mostafa, CEO of NileTech</p>
           </div>
           <div className="p-6 bg-white rounded-lg shadow">
             <p className="text-textMuted italic">
-              "The Pro System package transformed our operations with a custom dashboard. Highly recommend DevSoft!"
+              "The Pro System package transformed our operations with a custom dashboard. Highly recommend SoftSpark!"
             </p>
             <p className="mt-4 font-semibold text-primary">— Sara Khaled, Founder of ShopEasy</p>
           </div>
         </div>
       </section>
       <section className="mt-8 bg-backgroundLight py-12 rounded-lg">
-        <h2 className="text-3xl font-bold text-center text-primary">Get started with DevSoft</h2>
+        <h2 className="text-3xl font-bold text-center text-primary">Get started with SoftSpark</h2>
         <div className="flex justify-center">
           <button className="mt-6 bg-secondary text-white px-10 py-2 rounded hover:bg-primary transition" onClick={() => router.push("/contact")}>
             Get Started

@@ -5,7 +5,7 @@ export default function About() {
     <div className="container mx-auto px-4 py-12 bg-backgroundLight">
       {/* Header Section */}
       <section className="text-center">
-        <h1 className="text-4xl md:text-5xl font-bold text-primary">About DevSoft</h1>
+        <h1 className="text-4xl md:text-5xl font-bold text-primary">About SoftSpark</h1>
         <p className="text-lg text-textMuted mt-4 max-w-2xl mx-auto">
           We are a dedicated team of innovators building cutting-edge web solutions to empower businesses.
         </p>
@@ -16,7 +16,7 @@ export default function About() {
         <div className="md:w-1/2">
           <h2 className="text-3xl font-semibold text-primary">Our Story</h2>
           <p className="text-textMuted mt-4 leading-relaxed">
-            Founded in 2023, DevSoft was born out of a passion for technology and a commitment to helping businesses thrive in the digital world. Our team of skilled developers, designers, and strategists work collaboratively to deliver tailored solutions that drive results. From startups to established enterprises, we partner with our clients to turn their visions into reality.
+            Founded in 2023, SoftSpark was born out of a passion for technology and a commitment to helping businesses thrive in the digital world. Our team of skilled developers, designers, and strategists work collaboratively to deliver tailored solutions that drive results. From startups to established enterprises, we partner with our clients to turn their visions into reality.
           </p>
         </div>
         <div className="md:w-1/2">

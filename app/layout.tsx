@@ -8,8 +8,8 @@ import '@fortawesome/fontawesome-svg-core/styles.css';
 config.autoAddCss = false;
 
 export const metadata = {
-  title: 'DevSoft - Software Solutions',
-  description: 'Professional software and web development solutions by DevSoft.',
+  title: 'SoftSpark - Software Solutions',
+  description: 'Professional software and web development solutions by SoftSpark.',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
