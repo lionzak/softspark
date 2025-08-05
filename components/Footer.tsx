@@ -14,6 +14,11 @@ const Footer: React.FC = () => {
           <Link href="/services">Services </Link>
         </div>
         <div className={styles.copyright}>
+          <Link href="mailto:softspark.software@gmail.com">
+            <p className='border-b border-transparent hover:border-b hover:border-white transition-colors duration-300'>softspark.software@gmail.com</p>
+          </Link>
+        </div>
+        <div className={styles.copyright}>
           &copy; {currentYear} SoftSpark. All rights reserved.
         </div>
       </div>

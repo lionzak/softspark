@@ -16,7 +16,7 @@ export const packages: Package[] = [
   {
     name: 'Pro System',
     features: ['Web app or dashboard', 'Admin panel', 'Authentication', 'API integration', 'UI/UX included'],
-    delivery: '10–14 days',
-    price: '12,000–18,000 EGP (based on complexity)',
+    delivery: '17-20 days',
+    price: '12,000–18,000 EGP',
   },
 ];

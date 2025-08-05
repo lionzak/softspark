@@ -63,37 +63,6 @@ export default function About() {
           </div>
         </div>
       </section>
-
-      {/* Our Team */}
-      <section className="mt-16">
-        <h2 className="text-3xl font-bold text-center text-primary">Meet Our Team</h2>
-        <p className="text-lg text-textMuted text-center mt-4">
-          Our talented team is here to bring your ideas to life.
-        </p>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
-          <div className="text-center">
-            <div className="bg-backgroundLight border border-border h-48 w-48 mx-auto rounded-full flex items-center justify-center">
-              <span className="text-textMuted">[Team Member Photo]</span>
-            </div>
-            <h3 className="text-xl font-semibold mt-4 text-primary">John Doe</h3>
-            <p className="text-textMuted">Lead Developer</p>
-          </div>
-          <div className="text-center">
-            <div className="bg-backgroundLight border border-border h-48 w-48 mx-auto rounded-full flex items-center justify-center">
-              <span className="text-textMuted">[Team Member Photo]</span>
-            </div>
-            <h3 className="text-xl font-semibold mt-4 text-primary">Jane Smith</h3>
-            <p className="text-textMuted">UI/UX Designer</p>
-          </div>
-          <div className="text-center">
-            <div className="bg-backgroundLight border border-border h-48 w-48 mx-auto rounded-full flex items-center justify-center">
-              <span className="text-textMuted">[Team Member Photo]</span>
-            </div>
-            <h3 className="text-xl font-semibold mt-4 text-primary">Ahmed Ali</h3>
-            <p className="text-textMuted">Project Manager</p>
-          </div>
-        </div>
-      </section>
     </div>
   );
 }
