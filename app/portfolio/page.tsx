@@ -4,9 +4,9 @@ import { useRouter } from "next/navigation";
 export default function Portfolio() {
   const router = useRouter()
   const projects = [
-    { title: 'E-Commerce Platform', description: 'A fully responsive online store with payment integration.', image: '/images/project1.jpg' },
-    { title: 'Business Dashboard', description: 'A custom dashboard for real-time business analytics.', image: '/images/project2.jpg' },
-    { title: 'Portfolio Website', description: 'A sleek portfolio for a creative agency.', image: '/images/project3.jpg' },
+    { title: '', description: 'A full-featured website for a shopping mall, including store directories, brand listings, events section, and contact integrations — designed for user experience.', image: '/hc_mall.png' },
+    { title: 'Business Dashboard', description: 'A dynamic dashboard that allows business owners to track performance metrics and manage their website content in real-time — combining data visualization with a built-in CMS for full control.', image: '/dashboard.png' },
+    { title: 'Portfolio Website', description: 'A clean and modern personal website to showcase skills and projects — perfect for freelancers and creatives.', image: '/ereny.png' },
   ];
 
   return (
