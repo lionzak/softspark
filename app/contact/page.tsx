@@ -42,7 +42,6 @@ const Contact: React.FC = () => {
           ...formData,
           _subject: 'New Contact Form Submission',
           _template: 'table', 
-          _captcha: 'false'
         })
       });
 
