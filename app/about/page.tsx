@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import GetStarted from '@/components/GetStarted';
 
 export default function About() {
   return (
@@ -9,21 +9,6 @@ export default function About() {
         <p className="text-lg text-textMuted mt-4 max-w-2xl mx-auto">
           We are a dedicated team of innovators building cutting-edge web solutions to empower businesses.
         </p>
-      </section>
-
-      {/* Our Story */}
-      <section className="mt-16 flex flex-col md:flex-row items-center gap-8">
-        <div className="md:w-1/2">
-          <h2 className="text-3xl font-semibold text-primary">Our Story</h2>
-          <p className="text-textMuted mt-4 leading-relaxed">
-            Founded in 2023, SoftSpark was born out of a passion for technology and a commitment to helping businesses thrive in the digital world. Our team of skilled developers, designers, and strategists work collaboratively to deliver tailored solutions that drive results. From startups to established enterprises, we partner with our clients to turn their visions into reality.
-          </p>
-        </div>
-        <div className="md:w-1/2">
-          <div className="bg-backgroundLight border border-border h-64 rounded-lg flex items-center justify-center">
-            <span className="text-textMuted">[Placeholder for Team/Office Image]</span>
-          </div>
-        </div>
       </section>
 
       {/* Our Mission & Vision */}
@@ -63,6 +48,7 @@ export default function About() {
           </div>
         </div>
       </section>
+      <GetStarted />
     </div>
   );
 }

@@ -1,6 +1,6 @@
 'use client'
 import React, { useState, FormEvent } from 'react';
-import { Facebook, Instagram, Mail } from 'lucide-react';
+import { Facebook, Instagram, Linkedin, Mail } from 'lucide-react';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
@@ -159,6 +159,14 @@ const Contact: React.FC = () => {
             target="_blank"
           >
             <Instagram size={32} />
+          </a>
+          <a
+            href="https://www.linkedin.com/company/softspark-tech"
+            className="text-sky-700 hover:text-sky-800 transition-colors"
+            aria-label="Follow us on Instagram"
+            target="_blank"
+          >
+            <Linkedin size={32} />
           </a>
         </div>
       </div>
