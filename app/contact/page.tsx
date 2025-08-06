@@ -41,8 +41,8 @@ const Contact: React.FC = () => {
         body: JSON.stringify({
           ...formData,
           _subject: 'New Contact Form Submission',
-          _template: 'table', // or 'box' for different email templates
-          _captcha: 'false' // set to 'true' if you want to enable captcha
+          _template: 'table', 
+          _captcha: 'false'
         })
       });
 
