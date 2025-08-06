@@ -36,6 +36,12 @@ export default function Home() {
             <PackageCard key={index} pkg={pkg} />
           ))}
         </div>
+        <h2 className="text-3xl font-bold text-center text-primary mt-5">See More Services</h2>
+        <div className="flex justify-center">
+          <button className="mt-6 bg-secondary text-white px-10 py-2 rounded hover:bg-primary transition" onClick={() => router.push("/services")}>
+            Explore More
+          </button>
+        </div>
       </section>
 
       {/* Why Choose Us */}
