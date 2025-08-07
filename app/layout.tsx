@@ -3,6 +3,7 @@ import Footer from '@/components/Footer';
 import './globals.css';
 import { config } from '@fortawesome/fontawesome-svg-core';
 import '@fortawesome/fontawesome-svg-core/styles.css';
+import { Analytics } from '@vercel/analytics/next';
 
 
 config.autoAddCss = false;
@@ -18,6 +19,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="flex flex-col min-h-screen">
         <Navbar />
         <main className="flex-grow">{children}</main>
+        <Analytics />
         <Footer />
       </body>
     </html>
