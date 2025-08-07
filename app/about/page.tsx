@@ -24,7 +24,7 @@ export default function About() {
           <div className="p-6 bg-backgroundLight border border-border rounded-lg shadow">
             <h3 className="text-xl font-semibold text-primary">Vision</h3>
             <p className="text-textMuted mt-2">
-              To be a global leader in web development, known for creativity, quality, and client satisfaction.
+              To become the go-to partner for businesses seeking smart, scalable, and beautifully designed digital solutions — empowering startups and enterprises across the region to grow online, stand out, and stay ahead in a fast-moving digital world.
             </p>
           </div>
         </div>
