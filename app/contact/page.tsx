@@ -4,6 +4,7 @@ import { Facebook, Instagram, Linkedin, Mail } from 'lucide-react';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
+import { useRouter } from 'next/navigation';
 
 interface FormData {
   name: string;
@@ -19,6 +20,8 @@ const Contact: React.FC = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
+  const router = useRouter();
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({
@@ -30,36 +33,33 @@ const Contact: React.FC = () => {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     try {
-      const response = await fetch('https://formsubmit.co/ajax/softspark.software@gmail.com', {
-        method: 'POST',
-        headers: { 
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
+      const response = await fetch("https://formspree.io/f/xdkdvzbp", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json",
         },
-        body: JSON.stringify({
-          ...formData,
-          _subject: 'New Contact Form Submission',
-          _template: 'table', 
-        })
+        body: JSON.stringify(formData),
       });
 
       const data = await response.json();
-      
-      if (data.success === "true") {
-        alert('Message sent successfully!');
-        setFormData({ name: '', email: '', message: '' });
+
+      if (response.ok) {
+        router.push("/thank-you")
+        setFormData({ name: "", email: "", message: "" });
       } else {
-        alert('Failed to send message. Please try again.');
+        alert(data.error || "Failed to send message. Please try again.");
       }
     } catch (error) {
-      console.error('Error submitting form:', error);
-      alert('An error occurred. Please try again later.');
+      console.error("Error submitting form:", error);
+      alert("An error occurred. Please try again later.");
     } finally {
       setIsSubmitting(false);
     }
   };
+
 
   return (
     <div className="container mx-auto px-4 py-12 bg-gray-50 min-h-screen">
