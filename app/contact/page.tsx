@@ -10,13 +10,15 @@ interface FormData {
   name: string;
   email: string;
   message: string;
+  honeypot?: string; // anti-spam
 }
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
-    message: ''
+    message: '',
+    honeypot: '' // must stay empty
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -35,11 +37,11 @@ const Contact: React.FC = () => {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch("https://formspree.io/f/xdkdvzbp", {
-        method: "POST",
+      const response = await fetch('/api/contact', {
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
-          "Accept": "application/json",
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
         },
         body: JSON.stringify(formData),
       });
@@ -47,19 +49,18 @@ const Contact: React.FC = () => {
       const data = await response.json();
 
       if (response.ok) {
-        router.push("/thank-you")
-        setFormData({ name: "", email: "", message: "" });
+        setFormData({ name: '', email: '', message: '', honeypot: '' });
+        router.push('/thank-you');
       } else {
-        alert(data.error || "Failed to send message. Please try again.");
+        alert(data.error || 'Failed to send message. Please try again.');
       }
     } catch (error) {
-      console.error("Error submitting form:", error);
-      alert("An error occurred. Please try again later.");
+      console.error('Error submitting form:', error);
+      alert('An error occurred. Please try again later.');
     } finally {
       setIsSubmitting(false);
     }
   };
-
 
   return (
     <div className="container mx-auto px-4 py-12 bg-gray-50 min-h-screen">
@@ -68,7 +69,19 @@ const Contact: React.FC = () => {
         Get in touch with us to discuss your project needs.
       </p>
 
-      <form onSubmit={handleSubmit} className="max-w-lg mx-auto bg-white rounded-lg shadow p-8">
+      <form onSubmit={handleSubmit} className="max-w-lg mx-auto bg-white rounded-lg shadow p-8" noValidate>
+        {/* Honeypot (keep hidden). Bots will fill this; humans won't. */}
+        <input
+          type="text"
+          name="honeypot"
+          value={formData.honeypot}
+          onChange={handleInputChange}
+          className="hidden"
+          tabIndex={-1}
+          autoComplete="off"
+          aria-hidden="true"
+        />
+
         <div className="space-y-4 mb-8">
           <div>
             <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Name</label>
@@ -122,7 +135,7 @@ const Contact: React.FC = () => {
         </div>
       </form>
 
-      {/* Rest of your contact information remains the same */}
+      {/* Contact links */}
       <div className="text-center border-t pt-6 max-w-lg mx-auto">
         <div className="mb-4">
           <div className="flex items-center justify-center mb-2">
@@ -163,7 +176,7 @@ const Contact: React.FC = () => {
           <a
             href="https://www.linkedin.com/company/softspark-tech"
             className="text-sky-700 hover:text-sky-800 transition-colors"
-            aria-label="Follow us on Instagram"
+            aria-label="Follow us on LinkedIn"
             target="_blank"
           >
             <Linkedin size={32} />
