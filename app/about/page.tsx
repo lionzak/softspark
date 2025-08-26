@@ -45,7 +45,7 @@ export default function About() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutStructuredData) }}
       />
-      
+
       <div className="container mx-auto px-4 py-12 bg-backgroundLight">
         <main>
           {/* Header Section */}
@@ -65,7 +65,7 @@ export default function About() {
                 Our Mission & Vision
               </h2>
             </header>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
               <article className="p-6 bg-white border border-border rounded-lg shadow-sm hover:shadow-md transition-shadow">
                 <h3 className="text-xl font-semibold text-primary mb-3">Our Mission</h3>
@@ -73,7 +73,7 @@ export default function About() {
                   To deliver innovative, reliable, and affordable web solutions that empower businesses to achieve their digital goals and grow their online presence.
                 </p>
               </article>
-              
+
               <article className="p-6 bg-white border border-border rounded-lg shadow-sm hover:shadow-md transition-shadow">
                 <h3 className="text-xl font-semibold text-primary mb-3">Our Vision</h3>
                 <p className="text-textMuted leading-relaxed">
@@ -91,7 +91,7 @@ export default function About() {
               </h2>
               <p className="text-textMuted mt-2">The principles that guide everything we do</p>
             </header>
-            
+
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
               <article className="p-6 border border-border rounded-lg shadow-sm hover:shadow-xl transition-all duration-300 bg-white transform hover:-translate-y-1">
                 <h3 className="text-lg sm:text-xl font-semibold text-primary mb-3">Quality Excellence</h3>
@@ -99,14 +99,14 @@ export default function About() {
                   We prioritize excellence in every project, ensuring top-notch results that exceed expectations and deliver lasting value.
                 </p>
               </article>
-              
+
               <article className="p-6 border border-border rounded-lg shadow-sm hover:shadow-xl transition-all duration-300 bg-white transform hover:-translate-y-1">
                 <h3 className="text-lg sm:text-xl font-semibold text-primary mb-3">Client-Centric Approach</h3>
                 <p className="text-textMuted leading-relaxed text-sm sm:text-base">
                   Your success is our priority. We listen carefully, adapt to your needs, and deliver solutions that truly serve your business goals.
                 </p>
               </article>
-              
+
               <article className="p-6 border border-border rounded-lg shadow-sm hover:shadow-xl transition-all duration-300 bg-white transform hover:-translate-y-1 sm:col-span-2 lg:col-span-1">
                 <h3 className="text-lg sm:text-xl font-semibold text-primary mb-3">Innovation & Technology</h3>
                 <p className="text-textMuted leading-relaxed text-sm sm:text-base">
@@ -123,7 +123,7 @@ export default function About() {
                 Why Businesses Choose SoftSpark
               </h2>
             </header>
-            
+
             <div className="bg-white rounded-lg shadow-sm p-8 border border-border">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div>
@@ -131,23 +131,24 @@ export default function About() {
                   <p className="text-textMuted mb-6">
                     Based in Cairo, we understand the unique needs of Egyptian businesses and provide personalized service with local market insights.
                   </p>
-                  
+
                   <h3 className="text-xl font-semibold text-primary mb-4">Proven Track Record</h3>
                   <p className="text-textMuted">
                     Our portfolio showcases successful projects across various industries, from e-commerce to business dashboards and portfolio websites.
                   </p>
                 </div>
-                
+
                 <div>
                   <h3 className="text-xl font-semibold text-primary mb-4">Comprehensive Services</h3>
                   <p className="text-textMuted mb-6">
                     From initial design concepts to full-stack development and ongoing maintenance, we handle every aspect of your web presence.
                   </p>
-                  
+
                   <h3 className="text-xl font-semibold text-primary mb-4">Transparent Process</h3>
                   <p className="text-textMuted">
-                    We maintain clear communication throughout the development process, ensuring you're always informed about your project's progress.
+                    We maintain clear communication throughout the development process, ensuring you&apos;re always informed about your project&apos;s progress.
                   </p>
+
                 </div>
               </div>
             </div>

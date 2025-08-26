@@ -17,21 +17,21 @@ export const metadata = {
 
 export default function Portfolio() {
   const projects = [
-    { 
-      title: 'Shopping Mall Website', 
-      description: 'A full-featured website for a shopping mall, including store directories, brand listings, events section, and contact integrations — designed for optimal user experience.', 
+    {
+      title: 'Shopping Mall Website',
+      description: 'A full-featured website for a shopping mall, including store directories, brand listings, events section, and contact integrations — designed for optimal user experience.',
       image: '/hc_mall.png',
       alt: 'Shopping mall website design showing modern layout and user-friendly navigation'
     },
-    { 
-      title: 'Business Dashboard', 
-      description: 'A dynamic dashboard that allows business owners to track performance metrics and manage their website content in real-time — combining data visualization with a built-in CMS for full control.', 
+    {
+      title: 'Business Dashboard',
+      description: 'A dynamic dashboard that allows business owners to track performance metrics and manage their website content in real-time — combining data visualization with a built-in CMS for full control.',
       image: '/dashboard.png',
       alt: 'Business dashboard interface with charts, metrics, and content management features'
     },
-    { 
-      title: 'Portfolio Website', 
-      description: 'A clean and modern personal website to showcase skills and projects — perfect for freelancers and creatives looking to establish their online presence.', 
+    {
+      title: 'Portfolio Website',
+      description: 'A clean and modern personal website to showcase skills and projects — perfect for freelancers and creatives looking to establish their online presence.',
       image: '/ereny.png',
       alt: 'Clean and modern portfolio website design for creative professionals'
     },
@@ -61,7 +61,7 @@ export default function Portfolio() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(portfolioStructuredData) }}
       />
-      
+
       <div className="container mx-auto px-4 py-12">
         <header className="text-center mb-12">
           <h1 className="text-3xl sm:text-4xl font-bold text-primary mb-4">
@@ -79,8 +79,8 @@ export default function Portfolio() {
               {projects.map((project, index) => (
                 <article key={index} className="border rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden bg-white" role="listitem">
                   <div className="relative h-48 w-full">
-                    <Image 
-                      src={project.image} 
+                    <Image
+                      src={project.image}
                       alt={project.alt}
                       fill
                       className="object-cover"
@@ -107,10 +107,11 @@ export default function Portfolio() {
                 Ready to Start Your Web Development Project?
               </h2>
               <p className="text-textMuted mt-2 max-w-xl mx-auto">
-                Let's create something amazing together. Get started with SoftSpark today.
+                Let&apos;s create something amazing together. Get started with SoftSpark today.
               </p>
+
             </header>
-            <Link 
+            <Link
               href="/contact"
               className="inline-block bg-secondary text-white px-8 sm:px-10 py-3 rounded-lg hover:bg-primary transition-colors font-medium min-h-[48px]"
               aria-label="Contact us to start your web development project"
