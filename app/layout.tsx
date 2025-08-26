@@ -59,7 +59,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body className={`flex flex-col min-h-screen ${spaceGrotesk.className}`}>
-
+        <ChatWidget />
         <Navbar />
         <ParticlesBackground />
 
@@ -68,7 +68,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Analytics />
         <SpeedInsights />
         <Footer />
-        <ChatWidget />
       </body>
     </html>
   );
