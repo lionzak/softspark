@@ -65,7 +65,7 @@ export default function Home() {
             </header>
             
             <p className="text-sm sm:text-base md:text-lg lg:text-xl mt-4 sm:mt-6 lg:mt-8 max-w-xs sm:max-w-md md:max-w-lg lg:max-w-2xl mx-auto text-white/90 leading-relaxed px-2">
-              We deliver modern, responsive, and scalable web solutions tailored to your needs. Let's build your digital future today.
+              We deliver modern, responsive, and scalable web solutions tailored to your needs. Let&apos;s build your digital future today.
             </p>
             
             <Link href="/contact" aria-label="Get a free quote for your web development project">
