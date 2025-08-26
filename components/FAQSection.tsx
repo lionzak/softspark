@@ -114,19 +114,19 @@ const FAQSection: React.FC<FAQSectionProps> = ({
 
         {/* Contact CTA */}
         <Link href="/contact">
-            <div className="mt-12 text-center">
-              <div className="bg-white rounded-xl p-8 shadow-sm border border-gray-200">
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">
-                  Still have questions?
-                </h3>
-                <p className="text-gray-600 mb-6">
-                  Can&apos;t find the answer you're looking for? Our team is here to help.
-                </p>
-                <button className="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
-                  Contact Support
-                </button>
-              </div>
+          <div className="mt-12 text-center">
+            <div className="bg-white rounded-xl p-8 shadow-sm border border-gray-200">
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">
+                Still have questions?
+              </h3>
+              <p className="text-gray-600 mb-6">
+                Can&#39;t find the answer you&#39;re looking for? Our team is here to help.
+              </p>
+              <button className="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                Contact Support
+              </button>
             </div>
+          </div>
         </Link>
       </div>
     </section>
