@@ -69,7 +69,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <SpeedInsights />
         <Footer />
         <ChatWidget />
-
       </body>
     </html>
   );

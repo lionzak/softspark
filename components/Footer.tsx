@@ -23,7 +23,6 @@ const Footer: React.FC = () => {
           &copy; {currentYear} SoftSpark. All rights reserved.
         </div>
       </div>
-  
     </footer>
   );
 };
