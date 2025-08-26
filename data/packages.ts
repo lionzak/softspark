@@ -3,23 +3,49 @@ import { Package } from '@/types';
 export const packages: Package[] = [
   {
     name: 'Starter',
-    features: ['1-page website', 'Mobile-friendly', 'Contact form', 'Basic SEO setup'],
-    delivery: '3–4 days',
-    price: '3,000 EGP',
+    features: [
+      '1-page professional website',
+      'Fully mobile-friendly & responsive',
+      'Basic SEO setup',
+      'Speed optimized',
+      'Contact form + WhatsApp integration',
+      'Domain included (1 year)',
+      'hosting Included (First Year)',
+    ],
+    delivery: '3–5 days',
+    price: '5,000 EGP',
   },
   {
     name: 'Business',
-    features: ['Up to 5 pages', 'Clean design', 'SEO setup', 'Social media & WhatsApp integration', 'Basic analytics'],
-    delivery: '5–7 days',
-    price: '6,500 EGP',
+    features: [
+      '5–7 pages',
+      'Modern, clean responsive design',
+      'SEO optimized + sitemap submission',
+      'High speed performance',
+      'Google Maps integration',
+      'Facebook Pixel & Google Analytics setup',
+      'SSL security included',
+      'Domain included (1 Year)',
+      'hosting Included (First Year)',
+    ],
+    delivery: '7–10 days',
+    price: '7,500 EGP',
   },
   {
     name: 'Pro System',
-    features: ['Web app or dashboard', 'Admin panel', 'Authentication', 'API integration', 'UI/UX included'],
-    delivery: '17-20 days',
-    price: '12,000–18,000 EGP',
+    features: [
+      'Custom Web App or Dashboard',
+      'Admin panel with authentication',
+      'API integration',
+      'UI/UX design included',
+      'Domain included (1 year)',
+      'Free hosting (1 year, managed)',
+    ],
+    delivery: '17–20 days',
+    price: '9,000 EGP',
   },
 ];
+
 export const uiuxServices: Package[] = [
   {
     name: 'Starter',

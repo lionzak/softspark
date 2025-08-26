@@ -1,4 +1,5 @@
 // ===== SERVICES PAGE (app/services/page.tsx) =====
+import FeaturesSection from '@/components/FeaturesSection';
 import PackageCard from '@/components/PackageCard';
 import { packages, uiuxServices } from '@/data/packages';
 
@@ -66,13 +67,17 @@ export default function Services() {
           </p>
         </header>
 
+        <section>
+          <FeaturesSection />
+        </section>
+
         <main>
           {/* Full Solutions Section */}
           <section aria-labelledby="full-solutions-heading" className="mb-12">
             <hr className="mt-5 border-2 border-blue-500" />
             <header className="mt-8 mb-8">
               <h2 id="full-solutions-heading" className="text-2xl sm:text-3xl lg:text-4xl font-bold text-left text-primary">
-                Full-Stack Web Development Solutions
+                Full Web Development Solutions
               </h2>
               <p className="text-textMuted mt-2">Complete web development packages from concept to deployment</p>
             </header>
@@ -99,7 +104,7 @@ export default function Services() {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8" role="list">
               {uiuxServices.map((pkg, index) => (
                 <div key={index} role="listitem">
-                  <PackageCard pkg={pkg} />
+                  <PackageCard pkg={pkg} isUIUX={true} />
                 </div>
               ))}
             </div>
