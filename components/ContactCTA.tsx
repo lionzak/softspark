@@ -44,7 +44,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ onSubmit, className = '' }) =
   return (
     <div className={`bg-white rounded-2xl shadow-lg p-8 max-w-md mx-auto ${className}`}>
       <h2 className="text-2xl font-bold text-gray-800 mb-8 text-center">
-        Let's Work Together
+        Let&apos;s Work Together
       </h2>
       
       <form onSubmit={handleSubmit} className="space-y-6">
