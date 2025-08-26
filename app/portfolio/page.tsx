@@ -1,37 +1,125 @@
-'use client'
-import { useRouter } from "next/navigation";
+import Link from "next/link";
+import Image from "next/image";
+
+export const metadata = {
+  title: 'Our Portfolio - Web Development Projects | SoftSpark',
+  description: 'Explore SoftSpark\'s portfolio of successful web development projects including business dashboards, e-commerce sites, and portfolio websites.',
+  keywords: 'web development portfolio, business dashboard, e-commerce website, portfolio website, SoftSpark projects',
+  openGraph: {
+    title: 'SoftSpark Portfolio - Our Web Development Work',
+    description: 'See examples of our web development projects and what we can create for your business.',
+    url: 'https://softspark.me/portfolio',
+  },
+  alternates: {
+    canonical: 'https://softspark.me/portfolio',
+  },
+};
 
 export default function Portfolio() {
-  const router = useRouter()
   const projects = [
-    { title: '', description: 'A full-featured website for a shopping mall, including store directories, brand listings, events section, and contact integrations — designed for user experience.', image: '/hc_mall.png' },
-    { title: 'Business Dashboard', description: 'A dynamic dashboard that allows business owners to track performance metrics and manage their website content in real-time — combining data visualization with a built-in CMS for full control.', image: '/dashboard.png' },
-    { title: 'Portfolio Website', description: 'A clean and modern personal website to showcase skills and projects — perfect for freelancers and creatives.', image: '/ereny.png' },
+    { 
+      title: 'Shopping Mall Website', 
+      description: 'A full-featured website for a shopping mall, including store directories, brand listings, events section, and contact integrations — designed for optimal user experience.', 
+      image: '/hc_mall.png',
+      alt: 'Shopping mall website design showing modern layout and user-friendly navigation'
+    },
+    { 
+      title: 'Business Dashboard', 
+      description: 'A dynamic dashboard that allows business owners to track performance metrics and manage their website content in real-time — combining data visualization with a built-in CMS for full control.', 
+      image: '/dashboard.png',
+      alt: 'Business dashboard interface with charts, metrics, and content management features'
+    },
+    { 
+      title: 'Portfolio Website', 
+      description: 'A clean and modern personal website to showcase skills and projects — perfect for freelancers and creatives looking to establish their online presence.', 
+      image: '/ereny.png',
+      alt: 'Clean and modern portfolio website design for creative professionals'
+    },
   ];
 
+  const portfolioStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "SoftSpark Portfolio",
+    "description": "Web development projects completed by SoftSpark",
+    "numberOfItems": projects.length,
+    "itemListElement": projects.map((project, index) => ({
+      "@type": "CreativeWork",
+      "position": index + 1,
+      "name": project.title,
+      "description": project.description,
+      "creator": {
+        "@type": "Organization",
+        "name": "SoftSpark"
+      }
+    }))
+  };
+
   return (
-    <div className="container mx-auto px-4 py-12">
-      <h1 className="text-4xl font-bold text-center text-primary">Our Portfolio</h1>
-      <p className="text-lg text-gray-600 text-center mt-4">
-        Explore some of our past projects and see what we can do for you.
-      </p>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
-        {projects.map((project, index) => (
-          <div key={index} className="border rounded-lg p-6 shadow">
-            <img src={project.image} alt={project.title} className="w-full h-48 object-cover rounded" />
-            <h3 className="text-xl font-semibold mt-4">{project.title}</h3>
-            <p className="text-gray-600 mt-2">{project.description}</p>
-          </div>
-        ))}
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(portfolioStructuredData) }}
+      />
+      
+      <div className="container mx-auto px-4 py-12">
+        <header className="text-center mb-12">
+          <h1 className="text-3xl sm:text-4xl font-bold text-primary mb-4">
+            Our Web Development Portfolio
+          </h1>
+          <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto">
+            Explore some of our successful web development projects and see what we can create for your business.
+          </p>
+        </header>
+
+        <main>
+          <section aria-labelledby="projects-heading">
+            <h2 id="projects-heading" className="sr-only">Featured Projects</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-12" role="list">
+              {projects.map((project, index) => (
+                <article key={index} className="border rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden bg-white" role="listitem">
+                  <div className="relative h-48 w-full">
+                    <Image 
+                      src={project.image} 
+                      alt={project.alt}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      loading={index > 2 ? "lazy" : "eager"}
+                    />
+                  </div>
+                  <div className="p-6">
+                    <h3 className="text-lg sm:text-xl font-semibold mb-3 text-gray-900">
+                      {project.title}
+                    </h3>
+                    <p className="text-gray-600 leading-relaxed text-sm sm:text-base">
+                      {project.description}
+                    </p>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </section>
+
+          <section className="bg-backgroundLight py-12 rounded-lg text-center" aria-labelledby="cta-heading">
+            <header className="mb-6">
+              <h2 id="cta-heading" className="text-2xl sm:text-3xl font-bold text-primary">
+                Ready to Start Your Web Development Project?
+              </h2>
+              <p className="text-textMuted mt-2 max-w-xl mx-auto">
+                Let's create something amazing together. Get started with SoftSpark today.
+              </p>
+            </header>
+            <Link 
+              href="/contact"
+              className="inline-block bg-secondary text-white px-8 sm:px-10 py-3 rounded-lg hover:bg-primary transition-colors font-medium min-h-[48px]"
+              aria-label="Contact us to start your web development project"
+            >
+              Get Started Today
+            </Link>
+          </section>
+        </main>
       </div>
-      <section className="mt-8 bg-backgroundLight py-12 rounded-lg">
-        <h2 className="text-3xl font-bold text-center text-primary">Get started with SoftSpark</h2>
-        <div className="flex justify-center">
-          <button className="mt-6 bg-secondary text-white px-10 py-2 rounded hover:bg-primary transition" onClick={() => router.push("/contact")}>
-            Get Started
-          </button>
-        </div>
-      </section>
-    </div>
+    </>
   );
 }

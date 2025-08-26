@@ -1,190 +1,94 @@
-'use client'
-import React, { useState, FormEvent } from 'react';
+// app/contact/page.tsx
 import { Facebook, Instagram, Linkedin, Mail } from 'lucide-react';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
-import { useRouter } from 'next/navigation';
+import ContactForm from '@/components/ContactForm'; // ✅ separate client component
 
-interface FormData {
-  name: string;
-  email: string;
-  message: string;
-  honeypot?: string; // anti-spam
-}
+export const metadata = {
+  title: 'Contact SoftSpark - Get Your Free Web Development Quote',
+  description: 'Contact SoftSpark for professional web development services. Get in touch via phone, email, or our contact form. Free quotes available.',
+  keywords: 'contact web developer, web development quote, contact SoftSpark, web design consultation, Cairo web development',
+  openGraph: {
+    title: 'Contact SoftSpark - Web Development Services',
+    description: 'Get in touch with SoftSpark for your web development needs. Professional consultation and free quotes available.',
+    url: 'https://softspark.me/contact',
+  },
+  alternates: {
+    canonical: 'https://softspark.me/contact',
+  },
+};
 
-const Contact: React.FC = () => {
-  const [formData, setFormData] = useState<FormData>({
-    name: '',
-    email: '',
-    message: '',
-    honeypot: '' // must stay empty
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const router = useRouter();
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  };
-
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-
-      const data = await response.json();
-
-      if (response.ok) {
-        setFormData({ name: '', email: '', message: '', honeypot: '' });
-        router.push('/thank-you');
-      } else {
-        alert(data.error || 'Failed to send message. Please try again.');
-      }
-    } catch (error) {
-      console.error('Error submitting form:', error);
-      alert('An error occurred. Please try again later.');
-    } finally {
-      setIsSubmitting(false);
+export default function Contact() {
+  const contactStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "Contact SoftSpark",
+    "description": "Contact SoftSpark for web development services",
+    "url": "https://softspark.me/contact",
+    "mainEntity": {
+      "@type": "Organization",
+      "name": "SoftSpark",
+      "email": "softspark.software@gmail.com",
+      "telephone": "+201224213669"
     }
   };
 
   return (
-    <div className="container mx-auto px-4 py-12 bg-gray-50 min-h-screen">
-      <h1 className="text-4xl font-bold text-center text-gray-900 mb-4">Contact Us</h1>
-      <p className="text-lg text-gray-600 text-center mb-12">
-        Get in touch with us to discuss your project needs.
-      </p>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(contactStructuredData) }}
+      />
+      
+      <div className="container mx-auto px-4 py-12 bg-gray-50 min-h-screen">
+        <header className="text-center mb-12">
+          <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+            Contact SoftSpark - Web Development Services
+          </h1>
+          <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto">
+            Get in touch with us to discuss your web development project needs. We provide free consultations and quotes.
+          </p>
+        </header>
 
-      <form onSubmit={handleSubmit} className="max-w-lg mx-auto bg-white rounded-lg shadow p-8" noValidate>
-        {/* Honeypot (keep hidden). Bots will fill this; humans won't. */}
-        <input
-          type="text"
-          name="honeypot"
-          value={formData.honeypot}
-          onChange={handleInputChange}
-          className="hidden"
-          tabIndex={-1}
-          autoComplete="off"
-          aria-hidden="true"
-        />
+        <main>
+          {/* ✅ Client Form */}
+          <ContactForm />
 
-        <div className="space-y-4 mb-8">
-          <div>
-            <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Name</label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              value={formData.name}
-              onChange={handleInputChange}
-              className="w-full p-3 border border-gray-300 rounded focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-              placeholder="Your Name"
-              required
-            />
-          </div>
+          {/* Contact Information */}
+          <section className="text-center border-t pt-8 max-w-lg mx-auto" aria-labelledby="contact-info-heading">
+            <h2 id="contact-info-heading" className="text-xl font-semibold mb-6">Other Ways to Reach Us</h2>
+            
+            <div className="mb-6">
+              <div className="flex items-center justify-center mb-2">
+                <Mail className="w-5 h-5 text-blue-600 mr-2" aria-hidden="true" />
+                <span className="text-gray-900 font-medium">Email us directly:</span>
+              </div>
+              <Link href="mailto:softspark.software@gmail.com" className="text-blue-600 hover:text-blue-700 transition-colors">
+                softspark.software@gmail.com
+              </Link>
+            </div>
 
-          <div>
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">Email</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={formData.email}
-              onChange={handleInputChange}
-              className="w-full p-3 border border-gray-300 rounded focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-              placeholder="Your Email"
-              required
-            />
-          </div>
-
-          <div>
-            <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">Message</label>
-            <textarea
-              id="message"
-              name="message"
-              value={formData.message}
-              onChange={handleInputChange}
-              className="w-full p-3 border border-gray-300 rounded focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-              rows={5}
-              placeholder="Your Message"
-              required
-            ></textarea>
-          </div>
-
-          <button
-            type="submit"
-            disabled={isSubmitting}
-            className={`w-full bg-blue-600 text-white px-4 py-3 rounded hover:bg-blue-700 transition font-medium ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
-          >
-            {isSubmitting ? 'Sending...' : 'Send Message'}
-          </button>
-        </div>
-      </form>
-
-      {/* Contact links */}
-      <div className="text-center border-t pt-6 max-w-lg mx-auto">
-        <div className="mb-4">
-          <div className="flex items-center justify-center mb-2">
-            <Mail className="w-5 h-5 text-blue-600 mr-2" />
-            <span className="text-gray-900 font-medium">Email us directly:</span>
-          </div>
-          <Link href="mailto:softspark.software@gmail.com">
-            <p className="text-blue-600">softspark.software@gmail.com</p>
-          </Link>
-        </div>
-
-        <p className="text-gray-600 mb-4">Or reach us via:</p>
-        <div className="flex justify-center space-x-6">
-          <a
-            href="https://wa.me/+201224213669"
-            className="text-green-600 hover:text-green-700 transition-colors"
-            aria-label="Contact us on WhatsApp"
-            target="_blank"
-          >
-            <FontAwesomeIcon icon={faWhatsapp} size="2x" />
-          </a>
-          <a
-            href="https://www.facebook.com/share/1EBfHEmSJy/?mibextid=wwXIfr"
-            className="text-blue-600 hover:text-blue-700 transition-colors"
-            aria-label="Follow us on Facebook"
-            target="_blank"
-          >
-            <Facebook size={32} />
-          </a>
-          <a
-            href="https://www.instagram.com/softspark_solutions/"
-            className="text-pink-600 hover:text-pink-700 transition-colors"
-            aria-label="Follow us on Instagram"
-            target="_blank"
-          >
-            <Instagram size={32} />
-          </a>
-          <a
-            href="https://www.linkedin.com/company/softspark-tech"
-            className="text-sky-700 hover:text-sky-800 transition-colors"
-            aria-label="Follow us on LinkedIn"
-            target="_blank"
-          >
-            <Linkedin size={32} />
-          </a>
-        </div>
+            <p className="text-gray-600 mb-4">Connect with us on social media:</p>
+            <nav aria-label="Social media links">
+              <div className="flex justify-center space-x-6">
+                <a href="https://wa.me/+201224213669" className="text-green-600 hover:text-green-700 transition-colors" aria-label="Contact us on WhatsApp" target="_blank" rel="noopener noreferrer">
+                  <FontAwesomeIcon icon={faWhatsapp} size="2x" />
+                </a>
+                <a href="https://www.facebook.com/share/1EBfHEmSJy/?mibextid=wwXIfr" className="text-blue-600 hover:text-blue-700 transition-colors" aria-label="Follow us on Facebook" target="_blank" rel="noopener noreferrer">
+                  <Facebook size={32} />
+                </a>
+                <a href="https://www.instagram.com/softspark_solutions/" className="text-pink-600 hover:text-pink-700 transition-colors" aria-label="Follow us on Instagram" target="_blank" rel="noopener noreferrer">
+                  <Instagram size={32} />
+                </a>
+                <a href="https://www.linkedin.com/company/softspark-tech" className="text-sky-700 hover:text-sky-800 transition-colors" aria-label="Follow us on LinkedIn" target="_blank" rel="noopener noreferrer">
+                  <Linkedin size={32} />
+                </a>
+              </div>
+            </nav>
+          </section>
+        </main>
       </div>
-    </div>
+    </>
   );
-};
-
-export default Contact;
+}
