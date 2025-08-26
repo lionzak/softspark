@@ -1,17 +1,26 @@
-'use client'
+'use client';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState } from 'react';
+import { usePathname } from 'next/navigation';
+import { motion } from 'framer-motion';
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
 
-  const handleLinkClick = () => {
-    setIsOpen(false); // close menu when a link is clicked
-  };
+  const handleLinkClick = () => setIsOpen(false);
+
+  const links = [
+    { href: '/', label: 'Home' },
+    { href: '/services', label: 'Services' },
+    { href: '/portfolio', label: 'Portfolio' },
+    { href: '/about', label: 'About Us' },
+    { href: '/contact', label: 'Contact' },
+  ];
 
   return (
-    <nav className="bg-primary text-white p-4 shadow-md">
+    <nav className="bg-primary text-white p-4 shadow-md relative z-50">
       <div className="container mx-auto flex justify-between items-center">
         {/* Logo */}
         <Link href="/" onClick={handleLinkClick}>
@@ -43,8 +52,8 @@ const Navbar: React.FC = () => {
                 strokeWidth={2}
                 d={
                   isOpen
-                    ? 'M6 18L18 6M6 6l12 12' // X icon
-                    : 'M4 6h16M4 12h16M4 18h16' // Hamburger
+                    ? 'M6 18L18 6M6 6l12 12'
+                    : 'M4 6h16M4 12h16M4 18h16'
                 }
               />
             </svg>
@@ -52,23 +61,51 @@ const Navbar: React.FC = () => {
         </div>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex space-x-6">
-          <Link href="/" className="hover:text-secondary transition">Home</Link>
-          <Link href="/services" className="hover:text-secondary transition">Services</Link>
-          <Link href="/portfolio" className="hover:text-secondary transition">Portfolio</Link>
-          <Link href="/about" className="hover:text-secondary transition">About Us</Link>
-          <Link href="/contact" className="hover:text-secondary transition">Contact</Link>
+        <div className="hidden md:flex space-x-6 relative">
+          {links.map((link) => {
+            const isActive = pathname === link.href;
+            return (
+              <div key={link.href} className="relative">
+                <Link
+                  href={link.href}
+                  className={`transition ${isActive ? 'text-secondary font-semibold' : 'hover:text-secondary'
+                    }`}
+                >
+                  {link.label}
+                </Link>
+                {isActive && (
+                  <motion.div
+                    layoutId="underline"
+                    transition={{ duration: 0.2, ease: 'easeOut' }}
+                    className="absolute left-0 right-0 -bottom-1 h-[2px] bg-secondary"
+                  />
+                )}
+              </div>
+            );
+          })}
         </div>
       </div>
 
-      {/* Mobile Menu Dropdown */}
+      {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden mt-4 flex flex-col space-y-3 bg-primary/95 rounded-lg p-4">
-          <Link href="/" onClick={handleLinkClick} className="hover:bg-secondary px-3 py-2 rounded-lg transition">Home</Link>
-          <Link href="/services" onClick={handleLinkClick} className="hover:bg-secondary px-3 py-2 rounded-lg transition">Services</Link>
-          <Link href="/portfolio" onClick={handleLinkClick} className="hover:bg-secondary px-3 py-2 rounded-lg transition">Portfolio</Link>
-          <Link href="/about" onClick={handleLinkClick} className="hover:bg-secondary px-3 py-2 rounded-lg transition">About Us</Link>
-          <Link href="/contact" onClick={handleLinkClick} className="hover:bg-secondary px-3 py-2 rounded-lg transition">Contact</Link>
+        <div
+
+          className="md:hidden mt-4 flex flex-col space-y-3 bg-primary/95 rounded-lg p-4"
+        >
+          {links.map((link) => {
+            const isActive = pathname === link.href;
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={handleLinkClick}
+                className={`px-3 py-2 rounded-lg transition ${isActive ? 'bg-secondary/80' : 'hover:bg-secondary/50'
+                  }`}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
         </div>
       )}
     </nav>

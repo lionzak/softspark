@@ -27,7 +27,7 @@ const PackageCard: React.FC<PackageCardProps> = ({ pkg, isFeatured = false, isUI
     return `${Number(discountedPrice).toLocaleString()} EGP`;
   };
 
-  // Get the appropriate image based on package name
+  // Get the appropriate image with shining effect
   const getPackageIcon = () => {
     const getImagePath = () => {
       switch (pkg.name.toLowerCase()) {
@@ -35,24 +35,26 @@ const PackageCard: React.FC<PackageCardProps> = ({ pkg, isFeatured = false, isUI
           return '/starter.png';
         case 'business':
           return '/business.png';
-
         case 'pro system':
           return '/pro.png';
       }
     };
 
     return (
-      <div className={`w-16 h-16 ${isFeatured ? 'bg-white bg-opacity-20' : 'bg-gray-50'} rounded-xl flex items-center justify-center mb-4`}>
+      <div className={`w-16 h-16  rounded-xl flex items-center justify-center relative group`}>
         <img
           src={getImagePath()}
           alt={`${pkg.name} icon`}
-          className="w-32 h-32 object-contain"
+          className="w-32 h-32 object-contain transition-all duration-300 group-hover:scale-110"
           onError={(e) => {
-            // Fallback to a default icon if image fails to load
             const target = e.target as HTMLImageElement;
             target.src = '/icons/default-icon.png';
           }}
         />
+        {/* Shining overlay effect */}
+        <div className="absolute inset-0 overflow-hidden rounded-xl pointer-events-none">
+          <div className="shine-effect"></div>
+        </div>
       </div>
     );
   };
@@ -77,16 +79,29 @@ const PackageCard: React.FC<PackageCardProps> = ({ pkg, isFeatured = false, isUI
 
       {/* Header Section */}
       <div>
-        {!isUIUX ? getPackageIcon() : null}
-
-        <div className="mb-6">
-          <h3 className={`text-2xl font-bold ${isBusinessPackage ? 'text-white' : 'text-gray-800'}`}>
-            {pkg.name}
-          </h3>
-          <p className={`text-sm font-medium mt-1 ${isBusinessPackage ? 'text-white text-opacity-90' : 'text-gray-600'}`}>
-            {pkg.delivery}
-          </p>
-        </div>
+        {!isUIUX && (
+          <div className="flex justify-between items-center mb-6">
+            <div>
+              <h3 className={`text-4xl font-bold ${isBusinessPackage ? 'text-white' : 'text-gray-800'}`}>
+                {pkg.name}
+              </h3>
+              <p className={`text-md font-medium mt-1 ${isBusinessPackage ? 'text-white text-opacity-90' : 'text-gray-600'}`}>
+                {pkg.delivery}
+              </p>
+            </div>
+            {getPackageIcon()}
+          </div>
+        )}
+        {isUIUX && (
+          <div className="mb-6">
+            <h3 className={`text-4xl font-bold ${isBusinessPackage ? 'text-white' : 'text-gray-800'}`}>
+              {pkg.name}
+            </h3>
+            <p className={`text-md font-medium mt-1 ${isBusinessPackage ? 'text-white text-opacity-90' : 'text-gray-600'}`}>
+              {pkg.delivery}
+            </p>
+          </div>
+        )}
 
         {/* Pricing Section */}
         <div className="mb-6">
@@ -118,9 +133,12 @@ const PackageCard: React.FC<PackageCardProps> = ({ pkg, isFeatured = false, isUI
                   />
                 </svg>
               </div>
-              <span className={`text-sm leading-relaxed ${isBusinessPackage ? 'text-white' : 'text-gray-700'}`}>
+              <span
+                className={`${isBusinessPackage ? 'text-sm text-white' : 'text-lg text-gray-700'} leading-relaxed`}
+              >
                 {feature}
               </span>
+
             </li>
           ))}
         </ul>

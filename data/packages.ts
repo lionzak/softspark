@@ -34,6 +34,7 @@ export const packages: Package[] = [
   {
     name: 'Pro System',
     features: [
+      'Includes all features of Business Plan, plus:',
       'Custom Web App or Dashboard',
       'Admin panel with authentication',
       'API integration',

@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import ContactForm from '@/components/ContactForm'; // ✅ separate client component
+import { Highlight } from '@/components/ui/hero-highlight';
 
 export const metadata = {
   title: 'Contact SoftSpark - Get Your Free Web Development Quote',
@@ -40,13 +41,13 @@ export default function Contact() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(contactStructuredData) }}
       />
-      
-      <div className="container mx-auto px-4 py-12 bg-gray-50 min-h-screen">
+
+      <div className="container mx-auto px-4 py-12 bg-black min-h-screen">
         <header className="text-center mb-12">
-          <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-            Contact SoftSpark - Web Development Services
+          <h1 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+            <Highlight>Contact SoftSpark - Web Development Services</Highlight>
           </h1>
-          <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-white max-w-2xl mx-auto">
             Get in touch with us to discuss your web development project needs. We provide free consultations and quotes.
           </p>
         </header>
@@ -56,20 +57,20 @@ export default function Contact() {
           <ContactForm />
 
           {/* Contact Information */}
-          <section className="text-center border-t pt-8 max-w-lg mx-auto" aria-labelledby="contact-info-heading">
-            <h2 id="contact-info-heading" className="text-xl font-semibold mb-6">Other Ways to Reach Us</h2>
-            
+          <section className="text-center  pt-8 max-w-lg mx-auto" aria-labelledby="contact-info-heading">
+            <h2 id="contact-info-heading" className="text-xl font-semibold mb-6 text-white">Other Ways to Reach Us</h2>
+
             <div className="mb-6">
               <div className="flex items-center justify-center mb-2">
                 <Mail className="w-5 h-5 text-blue-600 mr-2" aria-hidden="true" />
-                <span className="text-gray-900 font-medium">Email us directly:</span>
+                <span className="text-white font-medium">Email us directly:</span>
               </div>
               <Link href="mailto:softspark.software@gmail.com" className="text-blue-600 hover:text-blue-700 transition-colors">
                 softspark.software@gmail.com
               </Link>
             </div>
 
-            <p className="text-gray-600 mb-4">Connect with us on social media:</p>
+            <p className="text-white mb-4">Connect with us on social media:</p>
             <nav aria-label="Social media links">
               <div className="flex justify-center space-x-6">
                 <a href="https://wa.me/+201224213669" className="text-green-600 hover:text-green-700 transition-colors" aria-label="Contact us on WhatsApp" target="_blank" rel="noopener noreferrer">
@@ -86,6 +87,9 @@ export default function Contact() {
                 </a>
               </div>
             </nav>
+
+
+
           </section>
         </main>
       </div>

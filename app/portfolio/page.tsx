@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { Highlight } from "@/components/ui/hero-highlight";
 
 export const metadata = {
   title: 'Our Portfolio - Web Development Projects | SoftSpark',
@@ -65,9 +66,9 @@ export default function Portfolio() {
       <div className="container mx-auto px-4 py-12">
         <header className="text-center mb-12">
           <h1 className="text-3xl sm:text-4xl font-bold text-primary mb-4">
-            Our Web Development Portfolio
+            <Highlight>Our Web Development Portfolio</Highlight>
           </h1>
-          <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-white max-w-2xl mx-auto">
             Explore some of our successful web development projects and see what we can create for your business.
           </p>
         </header>

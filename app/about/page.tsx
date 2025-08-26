@@ -46,115 +46,108 @@ export default function About() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutStructuredData) }}
       />
 
-      <div className="container mx-auto px-4 py-12 bg-backgroundLight">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 bg-gradient-to-b from-black to-black min-h-screen">
         <main>
           {/* Header Section */}
-          <header className="text-center mb-16">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-primary mb-4">
-              About SoftSpark
+          <header className="text-center mb-20 animate-fade-in">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-primary mb-6 tracking-tight text-white">
+              About <span className="border-b-4 border-yellow-400 pb-1">SoftSpark</span>
             </h1>
-            <p className="text-base sm:text-lg text-textMuted max-w-2xl mx-auto leading-relaxed">
-              We are a dedicated team of web development innovators in Cairo, Egypt, building cutting-edge web solutions to empower businesses across the region.
+            <p className="text-lg sm:text-xl text-white max-w-3xl mx-auto leading-relaxed opacity-90">
+              We are a passionate team of web development innovators, crafting cutting-edge digital solutions to empower businesses across the region.
             </p>
           </header>
 
           {/* Mission & Vision Section */}
-          <section className="mb-16" aria-labelledby="mission-vision-heading">
-            <header className="text-center mb-8">
-              <h2 id="mission-vision-heading" className="text-2xl sm:text-3xl font-bold text-primary">
+          <section className="mb-20" aria-labelledby="mission-vision-heading">
+            <header className="text-center mb-12">
+              <h2 id="mission-vision-heading" className="text-3xl sm:text-4xl font-bold text-primary text-white">
                 Our Mission & Vision
               </h2>
+              <p className="text-black mt-3 max-w-2xl mx-auto">Driving digital transformation with purpose and passion</p>
             </header>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-              <article className="p-6 bg-white border border-border rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                <h3 className="text-xl font-semibold text-primary mb-3">Our Mission</h3>
-                <p className="text-textMuted leading-relaxed">
-                  To deliver innovative, reliable, and affordable web solutions that empower businesses to achieve their digital goals and grow their online presence.
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              <article className="p-8 bg-white border border-border rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                <h3 className="text-2xl font-semibold text-primary mb-4">Our Mission</h3>
+                <p className="text-black leading-relaxed text-base">
+                  To deliver innovative, reliable, and cost-effective web solutions that empower businesses to achieve their digital goals and amplify their online presence.
                 </p>
               </article>
 
-              <article className="p-6 bg-white border border-border rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                <h3 className="text-xl font-semibold text-primary mb-3">Our Vision</h3>
-                <p className="text-textMuted leading-relaxed">
-                  To become the leading web development partner for businesses seeking smart, scalable, and beautifully designed digital solutions — empowering startups and enterprises across Egypt to thrive online.
+              <article className="p-8 bg-white border border-border rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                <h3 className="text-2xl font-semibold text-primary mb-4">Our Vision</h3>
+                <p className="text-black leading-relaxed text-base">
+                  To be the leading web development partner in The Region, providing smart, scalable, and beautifully designed digital solutions that help startups and enterprises thrive online.
                 </p>
               </article>
             </div>
           </section>
 
           {/* Values Section */}
-          <section className="mb-16" aria-labelledby="values-heading">
-            <header className="text-center mb-8">
-              <h2 id="values-heading" className="text-2xl sm:text-3xl font-bold text-primary">
+          <section className="mb-20" aria-labelledby="values-heading">
+            <header className="text-center mb-12">
+              <h2 id="values-heading" className="text-3xl sm:text-4xl font-bold text-black">
                 Our Core Values
               </h2>
-              <p className="text-textMuted mt-2">The principles that guide everything we do</p>
+              <p className="text-black mt-3 max-w-2xl mx-auto">The principles that shape our work and culture</p>
             </header>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-              <article className="p-6 border border-border rounded-lg shadow-sm hover:shadow-xl transition-all duration-300 bg-white transform hover:-translate-y-1">
-                <h3 className="text-lg sm:text-xl font-semibold text-primary mb-3">Quality Excellence</h3>
-                <p className="text-textMuted leading-relaxed text-sm sm:text-base">
-                  We prioritize excellence in every project, ensuring top-notch results that exceed expectations and deliver lasting value.
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+              <article className="p-8 bg-black border border-border rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 bg-gradient-to-br from-white to-gray-50">
+                <h3 className="text-xl font-semibold text-primary mb-4">Quality Excellence</h3>
+                <p className="text-black leading-relaxed text-base">
+                  We strive for perfection in every project, delivering top-tier results that exceed expectations and provide lasting value.
                 </p>
               </article>
 
-              <article className="p-6 border border-border rounded-lg shadow-sm hover:shadow-xl transition-all duration-300 bg-white transform hover:-translate-y-1">
-                <h3 className="text-lg sm:text-xl font-semibold text-primary mb-3">Client-Centric Approach</h3>
-                <p className="text-textMuted leading-relaxed text-sm sm:text-base">
-                  Your success is our priority. We listen carefully, adapt to your needs, and deliver solutions that truly serve your business goals.
+              <article className="p-8 bg-black border border-border rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 bg-gradient-to-br from-white to-gray-50">
+                <h3 className="text-xl font-semibold text-primary mb-4">Client-Centric Approach</h3>
+                <p className="text-black leading-relaxed text-base">
+                  Your success is our mission. We listen, adapt, and deliver tailored solutions that align with your business objectives.
                 </p>
               </article>
 
-              <article className="p-6 border border-border rounded-lg shadow-sm hover:shadow-xl transition-all duration-300 bg-white transform hover:-translate-y-1 sm:col-span-2 lg:col-span-1">
-                <h3 className="text-lg sm:text-xl font-semibold text-primary mb-3">Innovation & Technology</h3>
-                <p className="text-textMuted leading-relaxed text-sm sm:text-base">
-                  We embrace the latest technologies and best practices to create cutting-edge solutions that keep you ahead of the competition.
+              <article className="p-8 bg-black border border-border rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 bg-gradient-to-br from-white to-gray-50">
+                <h3 className="text-xl font-semibold text-primary mb-4">Innovation & Technology</h3>
+                <p className="text-black leading-relaxed text-base">
+                  We leverage the latest technologies and best practices to build cutting-edge solutions that keep you ahead of the curve.
                 </p>
               </article>
             </div>
           </section>
 
           {/* Why Choose Us Section */}
-          <section className="mb-16" aria-labelledby="why-choose-heading">
-            <header className="text-center mb-8">
-              <h2 id="why-choose-heading" className="text-2xl sm:text-3xl font-bold text-primary">
+          <section className="mb-20" aria-labelledby="why-choose-heading">
+            <header className="text-center mb-12">
+              <h2 id="why-choose-heading" className="text-3xl sm:text-4xl font-bold text-white">
                 Why Businesses Choose SoftSpark
               </h2>
+              <p className="text-white mt-3 max-w-2xl mx-auto">Discover what sets us apart in web development</p>
             </header>
 
-            <div className="bg-white rounded-lg shadow-sm p-8 border border-border">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div>
-                  <h3 className="text-xl font-semibold text-primary mb-4">Local Expertise</h3>
-                  <p className="text-textMuted mb-6">
-                    Based in Cairo, we understand the unique needs of Egyptian businesses and provide personalized service with local market insights.
-                  </p>
-
-                  <h3 className="text-xl font-semibold text-primary mb-4">Proven Track Record</h3>
-                  <p className="text-textMuted">
-                    Our portfolio showcases successful projects across various industries, from e-commerce to business dashboards and portfolio websites.
-                  </p>
-                </div>
-
-                <div>
-                  <h3 className="text-xl font-semibold text-primary mb-4">Comprehensive Services</h3>
-                  <p className="text-textMuted mb-6">
-                    From initial design concepts to full-stack development and ongoing maintenance, we handle every aspect of your web presence.
-                  </p>
-
-                  <h3 className="text-xl font-semibold text-primary mb-4">Transparent Process</h3>
-                  <p className="text-textMuted">
-                    We maintain clear communication throughout the development process, ensuring you&apos;re always informed about your project&apos;s progress.
-                  </p>
-
-                </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 bg-white rounded-xl shadow-lg p-10 border border-border">
+              <div className="flex flex-col justify-center">
+                <h3 className="text-2xl font-semibold text-primary mb-4">Comprehensive Services</h3>
+                <p className="text-black leading-relaxed text-base">
+                  From creative design to robust full-stack development and ongoing support, we manage every aspect of your digital presence with expertise.
+                </p>
+              </div>
+              <div className="flex flex-col justify-center">
+                <h3 className="text-2xl font-semibold text-primary mb-4">Transparent Process</h3>
+                <p className="text-black leading-relaxed text-base">
+                  We keep you informed at every step, ensuring clear communication and a seamless development experience tailored to your needs.
+                </p>
               </div>
             </div>
           </section>
 
-          <GetStarted />
+          {/* Call to Action */}
+          <section className="text-center py-12 bg-primary rounded-xl">
+            <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-white">Ready to Transform Your Digital Presence?</h2>
+            <p className="text-lg max-w-2xl mx-auto mb-8 text-white">Join hands with SoftSpark to create innovative, scalable, and stunning web solutions tailored to your business.</p>
+            <GetStarted />
+          </section>
         </main>
       </div>
     </>

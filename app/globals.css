@@ -3,7 +3,45 @@
 @tailwind utilities;
 
 body {
-  font-family: 'Inter', sans-serif;
-  background-color: #F7FAFC; /* backgroundLight */
-  color: #1E293B; /* textPrimary */
+  font-family: "Inter", sans-serif;
+  background-color: #000; /* backgroundLight */
+  color: #1e293b; /* textPrimary */
 }
+
+.animate-fade-in {
+  animation: fadeIn 1s ease-in-out;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}.shine-effect {
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.8) 50%,
+    transparent 100%
+  );
+  transform: skewX(-20deg);
+  animation: shine 3s ease-in-out infinite;
+}
+
+@keyframes shine {
+  0% {
+    transform: translateX(-150%) skewX(-20deg);
+  }
+  100% {
+    transform: translateX(300%) skewX(-20deg);
+  }
+}
+

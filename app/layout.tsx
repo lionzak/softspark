@@ -7,8 +7,15 @@ import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import DiscountBanner from '@/components/DiscountBanner';
 import { Metadata } from 'next';
+import { Space_Grotesk } from 'next/font/google';
+import ParticlesBackground from '@/components/ParticlesBackground';
+import ChatWidget from '@/components/ChatWidget';
 
-
+const spaceGrotesk = Space_Grotesk({
+  subsets: ['latin'], // adjust if you need other subsets
+  weight: ['400', '500', '700'], // select the weights you need
+  variable: '--font-space-grotesk', // optional CSS variable
+});
 
 config.autoAddCss = false;
 
@@ -51,13 +58,18 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className="flex flex-col min-h-screen">
+      <body className={`flex flex-col min-h-screen ${spaceGrotesk.className}`}>
+
         <Navbar />
+        <ParticlesBackground />
+
         <DiscountBanner />
         <main className="flex-grow">{children}</main>
         <Analytics />
         <SpeedInsights />
         <Footer />
+        <ChatWidget />
+
       </body>
     </html>
   );

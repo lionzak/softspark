@@ -2,6 +2,7 @@
 import FeaturesSection from '@/components/FeaturesSection';
 import PackageCard from '@/components/PackageCard';
 import { packages, uiuxServices } from '@/data/packages';
+import { Highlight } from '@/components/ui/hero-highlight';
 
 export const metadata = {
   title: 'Web Development Services - Full Solutions & UI/UX Design | SoftSpark',
@@ -57,12 +58,12 @@ export default function Services() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(servicesStructuredData) }}
       />
       
-      <div className="container mx-auto px-4 py-12 bg-backgroundLight">
+      <div className="container mx-auto px-4 py-12 bg-black">
         <header className="text-center mb-12">
           <h1 className="text-3xl sm:text-4xl font-bold text-primary mb-4">
-            Professional Web Development Services
+            <Highlight>Professional Web Development Services</Highlight>
           </h1>
-          <p className="text-base sm:text-lg text-textMuted max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-white max-w-2xl mx-auto">
             Choose the perfect web development package for your business needs. From simple websites to complex applications.
           </p>
         </header>
@@ -71,15 +72,15 @@ export default function Services() {
           <FeaturesSection />
         </section>
 
-        <main>
+        <main className="">
           {/* Full Solutions Section */}
           <section aria-labelledby="full-solutions-heading" className="mb-12">
             <hr className="mt-5 border-2 border-blue-500" />
-            <header className="mt-8 mb-8">
-              <h2 id="full-solutions-heading" className="text-2xl sm:text-3xl lg:text-4xl font-bold text-left text-primary">
+            <header className="mt-8 mb-12">
+              <h2 id="full-solutions-heading" className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center text-primary">
                 Full Web Development Solutions
               </h2>
-              <p className="text-textMuted mt-2">Complete web development packages from concept to deployment</p>
+              <p className="text-white text-center mt-2">Complete web development packages from concept to deployment</p>
             </header>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8" role="list">
@@ -95,10 +96,10 @@ export default function Services() {
           <section aria-labelledby="uiux-heading">
             <hr className="mt-8 border-2 border-blue-500" />
             <header className="mt-8 mb-8">
-              <h2 id="uiux-heading" className="text-2xl sm:text-3xl lg:text-4xl font-bold text-left text-primary">
+              <h2 id="uiux-heading" className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center text-primary">
                 UI/UX Design & Prototyping Services
               </h2>
-              <p className="text-textMuted mt-2">Professional design services to create stunning user experiences</p>
+              <p className="text-white text-center mt-2">Professional design services to create stunning user experiences</p>
             </header>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8" role="list">
