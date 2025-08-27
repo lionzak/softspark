@@ -1,4 +1,3 @@
-// ===== HOME PAGE (app/page.tsx) =====
 'use client'
 import Link from 'next/link';
 import PackageCard from '@/components/PackageCard';
@@ -11,19 +10,17 @@ import { Highlight } from '@/components/ui/hero-highlight';
 import FAQSection from '@/components/FAQSection';
 import Sparks from '@/components/Sparks';
 import ProjectsShowcase from '@/components/ProjectsShowcase';
-import { useEffect } from 'react'; // Import useEffect for client-side structured data
 
 export default function Home() {
   const router = useRouter();
 
-  // Structured data for SEO
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "SoftSpark",
-    "description": "Professional web development and design services, offering custom web, mobile, and software solutions.", // Enhanced description
-    "url": "https://softspark.me", // Corrected URL to softspark.me
-    "logo": "https://softspark.me/logo.png", // Assuming a logo exists
+    "description": "Professional web development and design services, offering custom web, mobile, and software solutions.",
+    "url": "https://softspark.me",
+    "logo": "https://softspark.me/logo.png",
     "contactPoint": {
       "@type": "ContactPoint",
       "telephone": "+201224213669",
@@ -39,21 +36,8 @@ export default function Home() {
       "@type": "PostalAddress",
       "addressLocality": "Cairo",
       "addressCountry": "Egypt"
-    },
-    "offers": {
-      "@type": "Service",
-      "name": "Web Development Services",
-      "description": "Custom web development, responsive design, and web applications for businesses of all sizes.", // Enhanced description
-      "provider": {
-        "@type": "Organization",
-        "name": "SoftSpark"
-      }
     }
   };
-
-  // Since this is a client component, structured data should ideally be in a server component or handled with useEffect
-  // For this specific case, it's already in the return, which is fine for client components, but for server components, it's direct.
-  // No change needed here as it's already a client component.
 
   return (
     <>
@@ -62,63 +46,67 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
 
-      <div className="min-h-screen ">
+      <div className="min-h-screen">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 lg:py-12">
 
-          {/* Hero Section with SEO-optimized headings */}
-          <section className="text-center py-8 sm:py-12 lg:py-16 xl:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-[#003F8E] to-[#1DBF73] text-white rounded-lg sm:rounded-xl lg:rounded-2xl shadow-lg sm:shadow-xl">
+          {/* Hero Section */}
+          <section className="text-center py-8 sm:py-12 lg:py-16 xl:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-[#003F8E] to-[#1DBF73] text-white rounded-lg shadow-lg">
             <header className="space-y-2 sm:space-y-4">
-              <div className="flex flex-col sm:flex-row justify-center items-center gap-2 sm:gap-4 lg:gap-6">
-                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight">
-                  <FlipWords
-                    words={["Elevate", "Transform", "Innovate"]}
-                    duration={1500}
-                    className="text-[#FF9F40]"
-                  />
-                  your business with
+              <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
+                <h1 className="text-3xl md:text-5xl font-bold leading-tight">
+                  <span className="inline-block min-w-[11==5ch]"> 
+                    <FlipWords
+                      words={["Elevate", "Transform", "Innovate"]}
+                      duration={1500}
+                      className="text-[#FF9F40]"
+                    />
+                  </span>
+                  {" "}your business with
                 </h1>
-                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold border-b-2 sm:border-b-4 border-yellow-400 leading-tight">
+                <h1 className="text-3xl md:text-5xl font-bold border-b-4 border-yellow-400 leading-tight">
                   SoftSpark
                 </h1>
               </div>
             </header>
 
-            <p className="text-sm sm:text-base md:text-lg lg:text-xl mt-4 sm:mt-6 lg:mt-8 max-w-xs sm:max-w-md md:max-w-lg lg:max-w-2xl mx-auto text-white/90 leading-relaxed px-2">
-              <Highlight>We deliver modern, responsive, and scalable web solutions tailored to your needs. Let&apos;s build your digital future today.</Highlight>
+            <p className="text-base md:text-lg mt-6 max-w-2xl mx-auto text-white/90 leading-relaxed px-2">
+              <Highlight>
+                We deliver modern, responsive, and scalable web solutions tailored to your needs. Let&apos;s build your digital future today.
+              </Highlight>
             </p>
 
             <Link href="/contact" aria-label="Get a free quote for your web development project">
-              <button className="mt-6 sm:mt-8 lg:mt-10 bg-white text-primary px-6 sm:px-8 lg:px-10 py-3 sm:py-4 lg:py-4 rounded-lg sm:rounded-xl hover:bg-accent hover:text-white transition-all duration-300 font-semibold text-sm sm:text-base lg:text-lg shadow-md hover:shadow-lg transform hover:-translate-y-1 min-h-[44px] min-w-[120px]">
+              <button className="mt-8 bg-white text-primary px-8 py-4 rounded-xl hover:bg-accent hover:text-white transition-all duration-300 font-semibold text-lg shadow-md hover:shadow-lg transform hover:-translate-y-1 min-h-[44px] min-w-[120px]">
                 Get a Free Quote
               </button>
             </Link>
           </section>
 
-          {/* Services Overview with semantic HTML */}
-          <section className="mt-8 sm:mt-12 lg:mt-16 xl:mt-20" aria-labelledby="services-heading">
-            <header className="text-center mb-6 sm:mb-8 lg:mb-12">
-              <h2 id="services-heading" className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-2 sm:mb-4">
+          {/* Services Section */}
+          <section className="mt-16" aria-labelledby="services-heading">
+            <header className="text-center mb-12">
+              <h2 id="services-heading" className="text-3xl font-bold text-white mb-4">
                 Our Web Development Services
               </h2>
-              <p className="text-sm sm:text-base lg:text-lg text-white max-w-2xl mx-auto px-4">
+              <p className="text-lg text-white max-w-2xl mx-auto">
                 From simple websites to complex web apps, we have a package for every business.
               </p>
             </header>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 sm:gap-6 lg:gap-8 mb-8 sm:mb-12" role="list">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
               {packages.map((pkg, index) => (
-                <div key={index} className="w-full" role="listitem">
+                <div key={index} className="w-full">
                   <PackageCard pkg={pkg} />
                 </div>
               ))}
             </div>
 
             <div className="text-center">
-              <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-4 sm:mb-6">
+              <h3 className="text-2xl font-bold text-white mb-6">
                 See More Services
               </h3>
               <button
-                className="bg-secondary text-white px-6 sm:px-8 lg:px-10 py-3 sm:py-4 rounded-lg sm:rounded-xl hover:bg-primary transition-all duration-300 font-medium text-sm sm:text-base shadow-md hover:shadow-lg transform hover:-translate-y-1 min-h-[44px]"
+                className="bg-secondary text-white px-8 py-4 rounded-xl hover:bg-primary transition-all duration-300 font-medium text-lg shadow-md hover:shadow-lg transform hover:-translate-y-1 min-h-[44px]"
                 onClick={() => router.push('/services')}
                 aria-label="Explore all our web development services"
               >
@@ -127,25 +115,26 @@ export default function Home() {
             </div>
           </section>
 
-          <section aria-labelledby="projects-heading" className='mt-10 border-t-4 border-blue-500'>
+          {/* Projects */}
+          <section aria-labelledby="projects-heading" className="mt-16 border-t-4 border-blue-500">
             <ProjectsShowcase />
           </section>
 
-          <section aria-labelledby="faq-heading" className='mt-10 border-t-4 border-blue-500 pt-10'>
+          {/* FAQ */}
+          <section aria-labelledby="faq-heading" className="mt-16 border-t-4 border-blue-500 pt-10">
             <FAQSection />
           </section>
 
-          {/* Why Choose Us with structured content */}
-          <section className="mt-8 sm:mt-12 lg:mt-16 xl:mt-20" aria-labelledby="why-choose-heading">
+          {/* Why Choose Us */}
+          <section className="mt-16" aria-labelledby="why-choose-heading">
             <WhyUs />
           </section>
 
-          {/* CTA Section */}
-          <div className="relative mt-8 sm:mt-12 lg:mt-16">
+          {/* CTA */}
+          <div className="relative mt-16">
             <Sparks />
             <GetStarted />
           </div>
-
         </div>
       </div>
     </>

@@ -3,7 +3,6 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useState } from 'react';
 import { usePathname } from 'next/navigation';
-import { motion } from 'framer-motion';
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -39,22 +38,15 @@ const Navbar: React.FC = () => {
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="focus:outline-none"
+            aria-expanded={isOpen}
+            aria-label="Toggle menu"
           >
-            <svg
-              className="w-7 h-7"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
+            <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeWidth={2}
-                d={
-                  isOpen
-                    ? 'M6 18L18 6M6 6l12 12'
-                    : 'M4 6h16M4 12h16M4 18h16'
-                }
+                d={isOpen ? 'M6 18L18 6M6 6l12 12' : 'M4 6h16M4 12h16M4 18h16'}
               />
             </svg>
           </button>
@@ -65,49 +57,38 @@ const Navbar: React.FC = () => {
           {links.map((link) => {
             const isActive = pathname === link.href;
             return (
-              <div key={link.href} className="relative">
-                <Link
-                  href={link.href}
-                  className={`transition ${isActive ? 'text-secondary font-semibold' : 'hover:text-secondary'
-                    }`}
-                >
-                  {link.label}
-                </Link>
-                {isActive && (
-                  <motion.div
-                    layoutId="underline"
-                    transition={{ duration: 0.2, ease: 'easeOut' }}
-                    className="absolute left-0 right-0 -bottom-1 h-[2px] bg-secondary"
-                  />
-                )}
-              </div>
-            );
-          })}
-        </div>
-      </div>
-
-      {/* Mobile Menu */}
-      {isOpen && (
-        <div
-
-          className="md:hidden mt-4 flex flex-col space-y-3 bg-primary/95 rounded-lg p-4"
-        >
-          {links.map((link) => {
-            const isActive = pathname === link.href;
-            return (
               <Link
                 key={link.href}
                 href={link.href}
-                onClick={handleLinkClick}
-                className={`px-3 py-2 rounded-lg transition ${isActive ? 'bg-secondary/80' : 'hover:bg-secondary/50'
-                  }`}
+                className={isActive ? 'text-secondary font-semibold' : 'hover:text-secondary'}
               >
                 {link.label}
               </Link>
             );
           })}
         </div>
-      )}
+      </div>
+
+      {/* Mobile Menu - keep mounted to prevent CLS */}
+      <div
+        className={`md:hidden mt-2 flex flex-col space-y-3 bg-primary/95 rounded-lg p-4 transition-all duration-300 overflow-hidden ${
+          isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0 pointer-events-none'
+        }`}
+      >
+        {links.map((link) => {
+          const isActive = pathname === link.href;
+          return (
+            <Link
+              key={link.href}
+              href={link.href}
+              onClick={handleLinkClick}
+              className={isActive ? 'bg-secondary/80 px-3 py-2 rounded-lg' : 'hover:bg-secondary/50 px-3 py-2 rounded-lg'}
+            >
+              {link.label}
+            </Link>
+          );
+        })}
+      </div>
     </nav>
   );
 };

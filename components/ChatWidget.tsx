@@ -5,7 +5,7 @@ import { FiMessageCircle, FiX } from "react-icons/fi";
 
 export default function ChatWidget() {
   const [open, setOpen] = useState(false);
-  const [showHint, setShowHint] = useState(true); // 👈 show hint initially
+  const [showHint, setShowHint] = useState(true);
   const iframeUrl = process.env.NEXT_PUBLIC_CHATBOT_IFRAME_URL || "";
   const panelRef = useRef<HTMLDivElement | null>(null);
 
@@ -17,12 +17,12 @@ export default function ChatWidget() {
     return () => window.removeEventListener("keydown", onKey);
   }, []);
 
-  if (!iframeUrl) return null; // nothing to render if no URL
+  if (!iframeUrl) return null;
 
   return (
     <div className="fixed bottom-5 right-5 z-[9999]">
       <div className="flex flex-col items-end gap-3">
-        {/* Panel */}
+        {/* Chat Panel */}
         {open && (
           <div
             ref={panelRef}
@@ -65,26 +65,27 @@ export default function ChatWidget() {
           </div>
         )}
 
-        {/* Hint card above button */}
-        {showHint && !open && (
-          <div className="relative mb-2 max-w-[220px] bg-white text-gray-800 text-sm shadow-lg rounded-lg px-3 py-2">
-            💡 Ask us anything here!
-            {/* Arrow pointing down */}
-            <div className="absolute right-4 -bottom-2 -translate-x-1/2 w-0 h-0 border-l-8 border-r-8 border-t-8 border-l-transparent border-r-transparent border-t-white" />
-            <button
-              className="ml-2 text-xl font-bold text-gray-400 hover:text-gray-600"
-              onClick={() => setShowHint(false)}
-            >
-              ✕
-            </button>
-          </div>
-        )}
+        {/* Hint card - fade instead of shift */}
+        <div
+          className={`relative mb-2 max-w-[220px] bg-white text-gray-800 text-sm shadow-lg rounded-lg px-3 py-2 transition-opacity duration-500 ${
+            showHint && !open ? "opacity-100" : "opacity-0 pointer-events-none"
+          }`}
+        >
+          💡 Ask us anything here!
+          <div className="absolute right-4 -bottom-2 -translate-x-1/2 w-0 h-0 border-l-8 border-r-8 border-t-8 border-l-transparent border-r-transparent border-t-white" />
+          <button
+            className="ml-2 text-xl font-bold text-gray-400 hover:text-gray-600"
+            onClick={() => setShowHint(false)}
+          >
+            ✕
+          </button>
+        </div>
 
-        {/* Floating button */}
+        {/* Floating Button */}
         <button
           onClick={() => {
             setOpen((s) => !s);
-            setShowHint(false); // 👈 hide hint once user clicks
+            setShowHint(false);
           }}
           aria-expanded={open}
           aria-label={open ? "Close chat" : "Open chat"}
