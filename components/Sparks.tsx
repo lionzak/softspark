@@ -8,13 +8,24 @@ const shapes = [
 ];
 
 export default function Sparks() {
-  const [items, setItems] = useState<any[]>([]);
+type SparkItem = {
+    type: "circle" | "triangle";
+    color: string;
+    left: number;
+    top: number;
+    duration: number;
+    delay: number;
+    size: number;
+};
+
+const [items, setItems] = useState<SparkItem[]>([]);
 
   useEffect(() => {
     const generated = Array.from({ length: 15 }).map(() => {
       const shape = shapes[Math.floor(Math.random() * shapes.length)];
       return {
         ...shape,
+        type: shape.type as "circle" | "triangle",
         left: Math.random() * 100, // percentage
         top: Math.random() * 100,
         duration: 8 + Math.random() * 10,
