@@ -7,8 +7,16 @@ const ThankYouClient = () => {
   const [windowSize, setWindowSize] = useState({ width: 0, height: 0 });
 
   useEffect(() => {
+    // Ensure window is defined before accessing its properties
     if (typeof window !== "undefined") {
       setWindowSize({ width: window.innerWidth, height: window.innerHeight });
+
+      // Optional: Add a timeout to stop confetti after a few seconds
+      const confettiTimeout = setTimeout(() => {
+        setWindowSize({ width: 0, height: 0 }); // Stop rendering confetti
+      }, 10000); // Stop after 10 seconds
+
+      return () => clearTimeout(confettiTimeout);
     }
   }, []);
 
@@ -16,7 +24,7 @@ const ThankYouClient = () => {
     "@context": "https://schema.org",
     "@type": "WebPage",
     name: "Thank You - SoftSpark",
-    description: "Thank you for contacting SoftSpark",
+    description: "Thank you for contacting SoftSpark. Your message has been received.", // Enhanced description
     url: "https://softspark.me/thank-you",
   };
 
@@ -30,13 +38,17 @@ const ThankYouClient = () => {
       />
 
       {/* 🎉 Confetti Celebration */}
-      <Confetti
-        width={windowSize.width}
-        height={windowSize.height}
-        recycle={false} // Confetti falls once
-        numberOfPieces={200}
-        gravity={0.2}
-      />
+      {windowSize.width > 0 && windowSize.height > 0 && ( // Only render confetti if window size is known
+        <Confetti
+          width={windowSize.width}
+          height={windowSize.height}
+          recycle={false} // Confetti falls once
+          numberOfPieces={200}
+          gravity={0.2}
+          initialVelocityX={{ min: -5, max: 5 }} // Added slight horizontal velocity
+          initialVelocityY={{ min: 5, max: 10 }} // Adjusted vertical velocity
+        />
+      )}
 
       <main className="flex items-center justify-center min-h-screen bg-gradient-to-br from-[#003F8E] to-[#1DBF73] text-white">
         <div className="text-center max-w-lg p-8 bg-white/10 rounded-xl shadow-lg relative z-10">
@@ -61,6 +73,7 @@ const ThankYouClient = () => {
             <Link
               href="/"
               className="inline-block px-6 py-3 rounded-lg bg-[#FF9F40] text-white font-semibold hover:bg-[#e6892f] transition-colors min-h-[48px] flex items-center justify-center"
+              aria-label="Back to Home Page" // Added aria-label
             >
               Back to Home
             </Link>

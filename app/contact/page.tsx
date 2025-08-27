@@ -14,6 +14,7 @@ export const metadata = {
     title: 'Contact SoftSpark - Web Development Services',
     description: 'Get in touch with SoftSpark for your web development needs. Professional consultation and free quotes available.',
     url: 'https://softspark.me/contact',
+    type: 'website', // Added OpenGraph type
   },
   alternates: {
     canonical: 'https://softspark.me/contact',
@@ -25,13 +26,24 @@ export default function Contact() {
     "@context": "https://schema.org",
     "@type": "ContactPage",
     "name": "Contact SoftSpark",
-    "description": "Contact SoftSpark for web development services",
+    "description": "Contact SoftSpark for web development services and free quotes.", // Enhanced description
     "url": "https://softspark.me/contact",
     "mainEntity": {
       "@type": "Organization",
       "name": "SoftSpark",
-      "email": "softspark.software@gmail.com",
-      "telephone": "+201224213669"
+      "email": "mailto:softspark.software@gmail.com", // Use mailto: for email
+      "telephone": "+201224213669",
+      "address": { // Added address for organization
+        "@type": "PostalAddress",
+        "addressLocality": "Cairo",
+        "addressCountry": "Egypt"
+      },
+      "sameAs": [ // Added social media links to organization schema
+        "https://wa.me/+201224213669",
+        "https://www.facebook.com/share/1EBfHEmSJy/?mibextid=wwXIfr",
+        "https://www.instagram.com/softspark_solutions/",
+        "https://www.linkedin.com/company/softspark-tech"
+      ]
     }
   };
 
@@ -87,9 +99,6 @@ export default function Contact() {
                 </a>
               </div>
             </nav>
-
-
-
           </section>
         </main>
       </div>

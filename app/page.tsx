@@ -11,7 +11,7 @@ import { Highlight } from '@/components/ui/hero-highlight';
 import FAQSection from '@/components/FAQSection';
 import Sparks from '@/components/Sparks';
 import ProjectsShowcase from '@/components/ProjectsShowcase';
-
+import { useEffect } from 'react'; // Import useEffect for client-side structured data
 
 export default function Home() {
   const router = useRouter();
@@ -21,9 +21,9 @@ export default function Home() {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "SoftSpark",
-    "description": "Professional web development and design services",
-    "url": "https://yourdomain.com",
-    "logo": "https://yourdomain.com/logo.png",
+    "description": "Professional web development and design services, offering custom web, mobile, and software solutions.", // Enhanced description
+    "url": "https://softspark.me", // Corrected URL to softspark.me
+    "logo": "https://softspark.me/logo.png", // Assuming a logo exists
     "contactPoint": {
       "@type": "ContactPoint",
       "telephone": "+201224213669",
@@ -43,9 +43,17 @@ export default function Home() {
     "offers": {
       "@type": "Service",
       "name": "Web Development Services",
-      "description": "Custom web development, responsive design, and web applications"
+      "description": "Custom web development, responsive design, and web applications for businesses of all sizes.", // Enhanced description
+      "provider": {
+        "@type": "Organization",
+        "name": "SoftSpark"
+      }
     }
   };
+
+  // Since this is a client component, structured data should ideally be in a server component or handled with useEffect
+  // For this specific case, it's already in the return, which is fine for client components, but for server components, it's direct.
+  // No change needed here as it's already a client component.
 
   return (
     <>

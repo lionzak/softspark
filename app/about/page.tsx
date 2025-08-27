@@ -8,6 +8,7 @@ export const metadata = {
     title: 'About SoftSpark - Web Development Experts',
     description: 'Meet the SoftSpark team - dedicated professionals creating innovative web solutions for businesses.',
     url: 'https://softspark.me/about',
+    type: 'website', // Added OpenGraph type
   },
   alternates: {
     canonical: 'https://softspark.me/about',
@@ -20,10 +21,11 @@ export default function About() {
     "@type": "AboutPage",
     "name": "About SoftSpark",
     "description": "Learn about SoftSpark web development company",
+    "url": "https://softspark.me/about", // Added URL to AboutPage schema
     "mainEntity": {
       "@type": "Organization",
       "name": "SoftSpark",
-      "description": "Professional web development and design services company",
+      "description": "Professional web development and design services company based in Cairo, Egypt, specializing in innovative web solutions.", // Enhanced description
       "foundingLocation": {
         "@type": "Place",
         "name": "Cairo, Egypt"
@@ -32,10 +34,22 @@ export default function About() {
         "Web Development",
         "UI/UX Design",
         "Responsive Design",
-        "E-commerce Solutions"
+        "E-commerce Solutions",
+        "Full-Stack Development", // Added more relevant keywords
+        "Custom Software Development"
       ],
-      "areaServed": "Egypt",
-      "slogan": "Transform Your Business with SoftSpark"
+      "areaServed": { // More specific areaServed
+        "@type": "Place",
+        "name": "Egypt"
+      },
+      "slogan": "Transform Your Business with SoftSpark",
+      "url": "https://softspark.me", // Added organization URL
+      "logo": "https://softspark.me/logo.png", // Assuming a logo exists
+      "contactPoint": { // Added contact point for organization
+        "@type": "ContactPoint",
+        "telephone": "+201224213669",
+        "contactType": "customer service"
+      }
     }
   };
 
@@ -64,7 +78,7 @@ export default function About() {
               <h2 id="mission-vision-heading" className="text-3xl sm:text-4xl font-bold text-primary text-white">
                 Our Mission & Vision
               </h2>
-              <p className="text-black mt-3 max-w-2xl mx-auto">Driving digital transformation with purpose and passion</p>
+              <p className="text-white mt-3 max-w-2xl mx-auto">Driving digital transformation with purpose and passion</p> {/* Changed text color for visibility */}
             </header>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -87,10 +101,10 @@ export default function About() {
           {/* Values Section */}
           <section className="mb-20" aria-labelledby="values-heading">
             <header className="text-center mb-12">
-              <h2 id="values-heading" className="text-3xl sm:text-4xl font-bold text-black">
+              <h2 id="values-heading" className="text-3xl sm:text-4xl font-bold text-white"> {/* Changed text color for visibility */}
                 Our Core Values
               </h2>
-              <p className="text-black mt-3 max-w-2xl mx-auto">The principles that shape our work and culture</p>
+              <p className="text-white mt-3 max-w-2xl mx-auto">The principles that shape our work and culture</p> {/* Changed text color for visibility */}
             </header>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">

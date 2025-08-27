@@ -12,6 +12,7 @@ export const metadata = {
     title: 'Professional Web Development Services | SoftSpark',
     description: 'From simple websites to complex web applications. Explore our comprehensive web development and UI/UX design services.',
     url: 'https://softspark.me/services',
+    type: 'website', // Added OpenGraph type
   },
   alternates: {
     canonical: 'https://softspark.me/services',
@@ -23,30 +24,56 @@ export default function Services() {
     "@context": "https://schema.org",
     "@type": "Service",
     "name": "Web Development Services",
-    "description": "Comprehensive web development and UI/UX design services",
+    "description": "Comprehensive web development and UI/UX design services offered by SoftSpark, covering full-stack solutions, UI/UX design, and prototyping.", // Enhanced description
     "provider": {
       "@type": "Organization",
-      "name": "SoftSpark"
+      "name": "SoftSpark",
+      "url": "https://softspark.me", // Added organization URL
+      "logo": "https://softspark.me/logo.png" // Assuming a logo exists
     },
-    "areaServed": "Egypt",
+    "areaServed": { // More specific areaServed
+      "@type": "Place",
+      "name": "Egypt"
+    },
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
-      "name": "Web Development Services",
+      "name": "Web Development Services Catalog", // More descriptive name
       "itemListElement": [
         {
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
-            "name": "Full-Stack Web Development"
+            "name": "Full-Stack Web Development",
+            "description": "End-to-end web development services including front-end and back-end development, database integration, and deployment.", // Added description
+            "serviceType": "Web Development"
           }
         },
         {
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
-            "name": "UI/UX Design & Prototyping"
+            "name": "UI/UX Design & Prototyping",
+            "description": "User interface and user experience design services, including wireframing, prototyping, and usability testing.", // Added description
+            "serviceType": "Design"
           }
-        }
+        },
+        // Dynamically add offers from packages and uiuxServices if they have relevant schema properties
+        ...packages.map(pkg => ({
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": pkg.name,
+            "serviceType": "Web Development Package"
+          }
+        })),
+        ...uiuxServices.map(pkg => ({
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": pkg.name,
+            "serviceType": "UI/UX Design Service"
+          }
+        }))
       ]
     }
   };

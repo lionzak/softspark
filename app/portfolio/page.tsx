@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Image from "next/image";
+import Image from "next/image"; // Ensure Image is imported
 import { Highlight } from "@/components/ui/hero-highlight";
 
 export const metadata = {
@@ -10,6 +10,7 @@ export const metadata = {
     title: 'SoftSpark Portfolio - Our Web Development Work',
     description: 'See examples of our web development projects and what we can create for your business.',
     url: 'https://softspark.me/portfolio',
+    type: 'website', // Added OpenGraph type
   },
   alternates: {
     canonical: 'https://softspark.me/portfolio',
@@ -40,20 +41,25 @@ export default function Portfolio() {
 
   const portfolioStructuredData = {
     "@context": "https://schema.org",
-    "@type": "ItemList",
+    "@type": "CollectionPage", // Changed to CollectionPage for a portfolio
     "name": "SoftSpark Portfolio",
-    "description": "Web development projects completed by SoftSpark",
-    "numberOfItems": projects.length,
-    "itemListElement": projects.map((project, index) => ({
-      "@type": "CreativeWork",
-      "position": index + 1,
-      "name": project.title,
-      "description": project.description,
-      "creator": {
-        "@type": "Organization",
-        "name": "SoftSpark"
-      }
-    }))
+    "description": "Web development projects completed by SoftSpark, showcasing our expertise in various digital solutions.", // Enhanced description
+    "url": "https://softspark.me/portfolio", // Added URL to CollectionPage schema
+    "mainEntity": {
+      "@type": "ItemList",
+      "itemListElement": projects.map((project, index) => ({
+        "@type": "CreativeWork",
+        "position": index + 1,
+        "name": project.title,
+        "description": project.description,
+        "image": `https://softspark.me${project.image}`, // Absolute URL for image
+        "creator": {
+          "@type": "Organization",
+          "name": "SoftSpark",
+          "url": "https://softspark.me" // Added organization URL
+        }
+      }))
+    }
   };
 
   return (
@@ -86,7 +92,7 @@ export default function Portfolio() {
                       fill
                       className="object-cover"
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                      loading={index > 2 ? "lazy" : "eager"}
+                      loading={index < 2 ? "eager" : "lazy"} // Eager load first two images, lazy load others
                     />
                   </div>
                   <div className="p-6">
@@ -110,7 +116,6 @@ export default function Portfolio() {
               <p className="text-textMuted mt-2 max-w-xl mx-auto">
                 Let&apos;s create something amazing together. Get started with SoftSpark today.
               </p>
-
             </header>
             <Link
               href="/contact"
