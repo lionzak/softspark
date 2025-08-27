@@ -49,7 +49,7 @@ export default function Portfolio() {
       "@type": "ItemList",
       "itemListElement": projects.map((project, index) => ({
         "@type": "CreativeWork",
-        "position": index + 1,
+        "position": index + 1,  
         "name": project.title,
         "description": project.description,
         "image": `https://softspark.me${project.image}`, // Absolute URL for image

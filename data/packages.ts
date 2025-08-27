@@ -4,7 +4,7 @@ export const packages: Package[] = [
   {
     name: 'Starter',
     features: [
-      '1-page professional website',
+      '3-pages professional website',
       'Fully mobile-friendly & responsive',
       'Basic SEO setup',
       'Speed optimized',
