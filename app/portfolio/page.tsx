@@ -22,7 +22,7 @@ export default function Portfolio() {
     {
       title: 'Shopping Mall Website',
       description: 'A full-featured website for a shopping mall, including store directories, brand listings, events section, and contact integrations — designed for optimal user experience.',
-      image: '/hc_mall.png',
+      image: '/hc_mall.webp',
       alt: 'Shopping mall website design showing modern layout and user-friendly navigation'
     },
     {
@@ -34,7 +34,7 @@ export default function Portfolio() {
     {
       title: 'Portfolio Website',
       description: 'A clean and modern personal website to showcase skills and projects — perfect for freelancers and creatives looking to establish their online presence.',
-      image: '/ereny.png',
+      image: '/ereny.webp',
       alt: 'Clean and modern portfolio website design for creative professionals'
     },
   ];

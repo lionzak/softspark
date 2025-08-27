@@ -62,17 +62,8 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://softspark.me',
   },
-  // Added viewport for responsiveness
-  viewport: {
-    width: 'device-width',
-    initialScale: 1,
-    maximumScale: 1,
-    userScalable: false,
-  },
   // Added application name
   applicationName: "SoftSpark",
-  // Added theme color
-  themeColor: "#000000",
 };
 
 

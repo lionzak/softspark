@@ -32,11 +32,11 @@ const PackageCard: React.FC<PackageCardProps> = ({ pkg, isFeatured = false, isUI
     const getImagePath = () => {
       switch (pkg.name.toLowerCase()) {
         case 'starter':
-          return '/starter.png';
+          return '/starter.webp';
         case 'business':
-          return '/business.png';
+          return '/business.webp';
         case 'pro system':
-          return '/pro.png';
+          return '/pro.webp';
       }
     };
 
@@ -46,10 +46,6 @@ const PackageCard: React.FC<PackageCardProps> = ({ pkg, isFeatured = false, isUI
           src={getImagePath()}
           alt={`${pkg.name} icon`}
           className="w-32 h-32 object-contain transition-all duration-300 group-hover:scale-110"
-          onError={(e) => {
-            const target = e.target as HTMLImageElement;
-            target.src = '/icons/default-icon.png';
-          }}
         />
         {/* Shining overlay effect */}
         <div className="absolute inset-0 overflow-hidden rounded-xl pointer-events-none">

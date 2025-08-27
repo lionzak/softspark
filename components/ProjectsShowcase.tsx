@@ -7,22 +7,22 @@ const projects = [
   {
     title: "Clinics & Healthcare",
     desc: "Professional websites for doctors, clinics, and healthcare centers that build trust and simplify patient bookings.",
-    img: "/clinic.svg",
+    img: "/clinic.webp",
   },
   {
     title: "Educational Platforms",
     desc: "Custom learning management systems and school/university websites with modern designs and easy navigation.",
-    img: "/education.svg",
+    img: "/education.webp",
   },
   {
     title: "E-Commerce Stores",
     desc: "High-performance online shops optimized for conversions, with secure payments and fast load times.",
-    img: "/shopping.svg",
+    img: "/shopping.webp",
   },
   {
     title: "Portfolios & Personal Brands",
     desc: "Elegant personal websites and portfolios that showcase your work with impact and professionalism.",
-    img: "/portfolio.svg",
+    img: "/portfolio.webp",
   },
 ];
 

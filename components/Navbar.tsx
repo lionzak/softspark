@@ -24,7 +24,7 @@ const Navbar: React.FC = () => {
         {/* Logo */}
         <Link href="/" onClick={handleLinkClick}>
           <Image
-            src="/logo_no_bg.png"
+            src="/logo_no_bg.webp"
             alt="SoftSpark Logo"
             width={130}
             height={40}
