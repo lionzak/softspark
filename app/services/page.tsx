@@ -57,7 +57,7 @@ export default function Services() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(servicesStructuredData) }}
       />
-      
+
       <div className="container mx-auto px-4 py-12 bg-black">
         <header className="text-center mb-12">
           <h1 className="text-3xl sm:text-4xl font-bold text-primary mb-4">
@@ -82,8 +82,8 @@ export default function Services() {
               </h2>
               <p className="text-white text-center mt-2">Complete web development packages from concept to deployment</p>
             </header>
-            
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8" role="list">
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 sm:gap-6 lg:gap-8" role="list">
               {packages.map((pkg, index) => (
                 <div key={index} role="listitem">
                   <PackageCard pkg={pkg} />
@@ -101,7 +101,7 @@ export default function Services() {
               </h2>
               <p className="text-white text-center mt-2">Professional design services to create stunning user experiences</p>
             </header>
-            
+
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8" role="list">
               {uiuxServices.map((pkg, index) => (
                 <div key={index} role="listitem">

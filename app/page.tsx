@@ -9,6 +9,8 @@ import WhyUs from '@/components/WhyUs';
 import { FlipWords } from '@/components/ui/flip-words';
 import { Highlight } from '@/components/ui/hero-highlight';
 import FAQSection from '@/components/FAQSection';
+import Sparks from '@/components/Sparks';
+import ProjectsShowcase from '@/components/ProjectsShowcase';
 
 
 export default function Home() {
@@ -95,7 +97,7 @@ export default function Home() {
               </p>
             </header>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 mb-8 sm:mb-12" role="list">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 sm:gap-6 lg:gap-8 mb-8 sm:mb-12" role="list">
               {packages.map((pkg, index) => (
                 <div key={index} className="w-full" role="listitem">
                   <PackageCard pkg={pkg} />
@@ -117,7 +119,11 @@ export default function Home() {
             </div>
           </section>
 
-          <section aria-labelledby="faq-heading" className='mt-10'>
+          <section aria-labelledby="projects-heading" className='mt-10 border-t-4 border-blue-500'>
+            <ProjectsShowcase />
+          </section>
+
+          <section aria-labelledby="faq-heading" className='mt-10 border-t-4 border-blue-500 pt-10'>
             <FAQSection />
           </section>
 
@@ -127,9 +133,11 @@ export default function Home() {
           </section>
 
           {/* CTA Section */}
-          <div className="mt-8 sm:mt-12 lg:mt-16">
+          <div className="relative mt-8 sm:mt-12 lg:mt-16">
+            <Sparks />
             <GetStarted />
           </div>
+
         </div>
       </div>
     </>

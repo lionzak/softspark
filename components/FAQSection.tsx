@@ -40,7 +40,8 @@ const FAQSection: React.FC<FAQSectionProps> = ({
   faqs = defaultFAQs,
   className = ""
 }) => {
-  const [openItems, setOpenItems] = useState<Set<number>>(new Set());
+
+  const [openItems, setOpenItems] = useState<Set<number>>(new Set([1]));
 
   const toggleItem = (id: number) => {
     const newOpenItems = new Set(openItems);
@@ -96,9 +97,8 @@ const FAQSection: React.FC<FAQSectionProps> = ({
               {/* Answer */}
               <div
                 id={`faq-answer-${faq.id}`}
-                className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                  isOpen(faq.id) ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
-                }`}
+                className={`overflow-hidden transition-all duration-300 ease-in-out ${isOpen(faq.id) ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+                  }`}
               >
                 <div className="px-6 pb-5">
                   <div className="pt-2 border-t border-gray-100">
