@@ -10,6 +10,7 @@ import { Metadata } from 'next';
 import { Space_Grotesk } from 'next/font/google';
 import ParticlesBackground from '@/components/ParticlesBackground';
 import ChatWidget from '@/components/ChatWidget';
+import GoogleAnalytics from '@/components/GoogleAnalytics';
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ['latin'], // adjust if you need other subsets
@@ -65,6 +66,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
         <DiscountBanner />
         <main className="flex-grow">{children}</main>
+        <GoogleAnalytics />
+
         <Analytics />
         <SpeedInsights />
         <Footer />
